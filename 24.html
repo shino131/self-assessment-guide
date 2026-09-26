@@ -1,0 +1,1549 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>الدليل التنفيذي للتقييم الذاتي</title>
+<meta name="theme-color" content="#0a0a1a">
+<!-- iOS App Support -->
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="دليل التقييم">
+<meta name="mobile-web-app-capable" content="yes">
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Tajawal:wght@300;400;500;700;800;900&display=swap');
+
+:root {
+  --bg-gradient: linear-gradient(135deg, #1a1f35 0%, #2d3748 100%);
+  --card-bg: rgba(255, 255, 255, 0.06);
+  --card-border: rgba(255, 255, 255, 0.15);
+  --primary: #9aa5b1;
+  --primary-light: #cdd5dc;
+  --text: #eef1f4;
+  --text-light: #9aa5b1;
+  --border: rgba(255,255,255,0.14);
+  --radius: 14px;
+  --transition-fast: background 0.2s ease, border-color 0.2s ease, transform 0.2s ease;
+
+  --content-font-size: 16px;
+  --font-family: 'Tajawal', 'Segoe UI', Tahoma, Arial, sans-serif;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+  font-family: var(--font-family);
+  background: var(--bg-gradient);
+  background-attachment: fixed;
+  color: var(--text);
+  min-height: 100vh;
+  transition: background 0.5s ease, font-family 0.3s ease;
+}
+
+.card-title { font-size: calc(var(--content-font-size) + 2px); transition: font-size 0.3s ease; }
+.card-desc { font-size: var(--content-font-size); transition: font-size 0.3s ease; }
+.card-meta { font-size: calc(var(--content-font-size) - 2px); transition: font-size 0.3s ease; }
+.page-subtitle { font-size: calc(var(--content-font-size) - 1px); transition: font-size 0.3s ease; }
+.practice-detail-card li { font-size: var(--content-font-size); transition: font-size 0.3s ease; }
+.section-content li { font-size: var(--content-font-size); transition: font-size 0.3s ease; }
+.breadcrumb-item { font-size: calc(var(--content-font-size) - 2px); transition: font-size 0.3s ease; }
+.section-label { font-size: calc(var(--content-font-size) - 1px); transition: font-size 0.3s ease; }
+
+.logo { font-size: 1.25rem; }
+.card-icon { font-size: 1.2rem; }
+.practice-mini .card-icon { font-size: 0.95rem; }
+.settings-btn { font-size: 1.5rem; }
+
+.header {
+  background: rgba(26, 31, 53, 0.7);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--border);
+  color: var(--text);
+  padding: 1rem 2rem;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+.header-content {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1.5rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+.logo { display: flex; align-items: center; gap: 0.75rem; font-weight: 800; }
+.logo-icon {
+  width: 40px; height: 40px;
+  border: 2px solid var(--primary-light);
+  border-radius: 10px;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 1.3rem;
+  background: rgba(255,255,255,0.05);
+}
+.settings-btn {
+  background: var(--card-bg);
+  border: 1px solid var(--card-border);
+  color: var(--text);
+  width: 48px; height: 48px;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: var(--transition-fast);
+  display: flex; align-items: center; justify-content: center;
+  backdrop-filter: blur(8px);
+}
+.settings-btn:hover { background: rgba(255,255,255,0.15); transform: rotate(45deg); }
+
+.layout {
+  position: relative; z-index: 1; width: 100%; max-width: 1200px;
+  margin: 0 auto; padding: 1.5rem; min-height: calc(100vh - 80px);
+}
+.main { background: transparent; padding: 1.5rem 0; min-height: 500px; width: 100%; }
+.breadcrumb {
+  display: flex; align-items: center; gap: 0.5rem; color: var(--text-light);
+  margin-bottom: 1.5rem; padding-bottom: 1rem; border-bottom: 1px solid var(--border); flex-wrap: wrap;
+}
+.breadcrumb-item {
+  cursor: pointer; transition: var(--transition-fast); padding: 0.3rem 0.75rem;
+  border-radius: 20px; border: 1px solid transparent;
+}
+.breadcrumb-item:hover { border-color: var(--primary-light); color: var(--primary-light); }
+.breadcrumb-item.current { color: var(--text); font-weight: 700; cursor: default; border-color: var(--primary-light); background: rgba(255,255,255,0.05); }
+.breadcrumb-sep { color: var(--text-light); }
+.page-subtitle { color: var(--text-light); margin-bottom: 2rem; }
+
+.cards-grid { display: grid; grid-template-columns: 1fr; gap: 1.25rem; }
+.card {
+  background: var(--card-bg); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px);
+  border: 1px solid var(--card-border); border-right: 3px solid var(--card-color, var(--primary));
+  border-radius: var(--radius); padding: 1.35rem 1.5rem; cursor: pointer;
+  transition: var(--transition-fast); display: flex; align-items: center; justify-content: center;
+  text-align: center; min-height: 84px;
+}
+.card:hover { background: rgba(255,255,255,0.12); transform: translateY(-3px); box-shadow: 0 8px 24px rgba(0,0,0,0.2); }
+.card:active { background: rgba(255,255,255,0.18); transform: translateY(0); }
+.card-icon { margin-inline-end: 0.6rem; line-height: 1; }
+.card-title { font-weight: 700; color: var(--card-color, var(--text)); line-height: 1.4; }
+.card-desc { color: var(--text-light); line-height: 1.6; margin-top: 0.4rem; }
+.card-meta { display: flex; gap: 0.75rem; color: var(--text-light); margin-top: 0.5rem; flex-wrap: wrap; justify-content: center; }
+.card-meta-item { display: flex; align-items: center; gap: 0.3rem; }
+.card-stack { flex-direction: column; }
+.practice-mini { flex-direction: row; }
+
+.practice-detail-card { align-items: flex-start !important; text-align: right !important; min-height: auto; padding: 1.5rem; cursor: default; }
+.practice-detail-card:hover { transform: translateY(-3px); box-shadow: 0 8px 24px rgba(0,0,0,0.2); }
+.practice-detail-card .card-title {
+  margin-bottom: 1rem; width: 100%; border-bottom: 1px solid var(--border);
+  padding-bottom: 0.75rem; display: flex; align-items: center; gap: 0.5rem;
+}
+.practice-detail-card ul { list-style: none; padding: 0; margin: 0; width: 100%; }
+.practice-detail-card li {
+  padding: 0.6rem 1.5rem 0.6rem 0; position: relative; line-height: 1.7;
+  color: var(--text); transition: var(--transition-fast);
+}
+.practice-detail-card li:hover { color: var(--primary-light); }
+.practice-detail-card li::before {
+  content: "•"; position: absolute; right: 0; color: var(--card-color, var(--primary-light));
+  font-weight: bold; font-size: 1.3rem; line-height: 1.2; top: 0.6rem;
+}
+
+.settings-modal {
+  display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+  background: rgba(0,0,0,0.6); backdrop-filter: blur(6px); -webkit-backdrop-filter: blur(6px);
+  z-index: 1000; justify-content: center; align-items: center; opacity: 0; transition: opacity 0.3s ease;
+}
+.settings-modal.active { display: flex; opacity: 1; }
+.settings-content {
+  background: rgba(30, 37, 50, 0.95); border: 1px solid var(--card-border);
+  border-radius: var(--radius); padding: 2rem; width: 90%; max-width: 420px;
+  box-shadow: 0 20px 50px rgba(0,0,0,0.5); transform: scale(0.95); transition: transform 0.3s ease;
+}
+.settings-modal.active .settings-content { transform: scale(1); }
+.settings-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 1.5rem; border-bottom: 1px solid var(--border); padding-bottom: 1rem; }
+.settings-header h3 { font-size: 1.2rem; color: var(--text); }
+.close-btn { background: none; border: none; color: var(--text-light); font-size: 2rem; line-height: 1; cursor: pointer; transition: color 0.2s; }
+.close-btn:hover { color: var(--text); }
+.setting-item { margin-bottom: 1.5rem; }
+.setting-item label { display: block; margin-bottom: 0.6rem; color: var(--primary-light); font-weight: 700; font-size: 0.95rem; }
+.color-options { display: flex; gap: 0.75rem; flex-wrap: wrap; align-items: center; }
+.color-btn {
+  width: 45px; height: 45px; border-radius: 50%; border: 2px solid transparent;
+  cursor: pointer; transition: var(--transition-fast); box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+}
+.color-btn:hover, .color-btn.active { border-color: var(--primary-light); transform: scale(1.15); }
+input[type="color"] { width: 45px; height: 45px; border: none; border-radius: 50%; cursor: pointer; background: none; padding: 0; overflow: hidden; }
+input[type="color"]::-webkit-color-swatch-wrapper { padding: 0; }
+input[type="color"]::-webkit-color-swatch { border: 2px solid var(--card-border); border-radius: 50%; }
+select {
+  width: 100%; padding: 0.85rem; border-radius: 10px; border: 1px solid var(--card-border);
+  background: rgba(0,0,0,0.3); color: var(--text); font-family: inherit; font-size: 1rem;
+  cursor: pointer; outline: none; transition: var(--transition-fast);
+}
+select:focus { border-color: var(--primary-light); background: rgba(0,0,0,0.5); }
+
+::-webkit-scrollbar { width: 8px; height: 8px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb { background: var(--text-light); border-radius: 4px; }
+::-webkit-scrollbar-thumb:hover { background: var(--primary-light); }
+
+@media (max-width: 640px) {
+  .cards-grid { grid-template-columns: 1fr; }
+  .header-content { justify-content: center; position: relative; }
+  .settings-btn { position: absolute; right: 1rem; }
+  .logo { font-size: 1rem; }
+  .logo span { display: none; }
+  .logo-icon { display: flex; }
+}
+</style>
+</head>
+<body>
+
+<header class="header">
+  <div class="header-content">
+    <button id="settingsBtn" class="settings-btn" title="الإعدادات">⚙️</button>
+    <div class="logo">
+      <div class="logo-icon">📋</div>
+      <span>الدليل التنفيذي للتقييم الذاتي</span>
+    </div>
+  </div>
+</header>
+
+<div id="settingsModal" class="settings-modal">
+  <div class="settings-content">
+    <div class="settings-header">
+      <h3>⚙️ الإعدادات</h3>
+      <button id="closeSettings" class="close-btn">×</button>
+    </div>
+    <div class="setting-item">
+      <label>🎨 لون الخلفية (تدرج لوني)</label>
+      <div class="color-options">
+        <button class="color-btn active" style="background: linear-gradient(135deg, #1a1f35, #2d3748)" data-bg="linear-gradient(135deg, #1a1f35 0%, #2d3748 100%)" title="كحلي رمادي"></button>
+        <button class="color-btn" style="background: linear-gradient(135deg, #0f2027, #203a43, #2c5364)" data-bg="linear-gradient(135deg, #0f2027 0%, #203a43 50%, #2c5364 100%)" title="أخضر مزرق"></button>
+        <button class="color-btn" style="background: linear-gradient(135deg, #232526, #414345)" data-bg="linear-gradient(135deg, #232526 0%, #414345 100%)" title="رمادي داكن"></button>
+        <button class="color-btn" style="background: linear-gradient(135deg, #141E30, #243B55)" data-bg="linear-gradient(135deg, #141E30 0%, #243B55 100%)" title="أزرق ليلي"></button>
+        <input type="color" id="customColor" value="#1a1f35" title="اختر لوناً مخصصاً">
+      </div>
+    </div>
+    <div class="setting-item">
+      <label>🔤 حجم نص المحتوى</label>
+      <select id="fontSizeSelect">
+        <option value="16px">16</option>
+        <option value="18px">18</option>
+        <option value="20px">20</option>
+        <option value="24px">24</option>
+        <option value="28px">28</option>
+      </select>
+    </div>
+    <div class="setting-item">
+      <label>🔠 نوع الخط</label>
+      <select id="fontFamilySelect">
+        <option value="'Tajawal', sans-serif">Tajawal</option>
+        <option value="Arial, sans-serif">Arial</option>
+        <option value="'Courier New', monospace">Courier New</option>
+      </select>
+    </div>
+  </div>
+</div>
+
+<div class="layout">
+  <main class="main">
+    <div class="breadcrumb" id="breadcrumb"></div>
+    <div id="contentArea"></div>
+  </main>
+</div>
+
+<script>
+const data = {
+  domains: [
+    {
+      id: "d1", name: "التخطيط الاستراتيجي", icon: "🎯", color: "#8b8fe0", colorLight: "#8b8fe0", description: "",
+      standards: [
+        {
+          id: "s1-1", number: "1-1", name: "رؤية ورسالة المعهد/المركز",
+          indicators: [
+            {
+              id: "i1-1-1", number: "1-1-1", name: "توجد وثيقة واضحة ومعلنة لرؤية المعهد/المركز",
+              practices: [
+                { id: "p1-1-1-1", number: "1-1-1-1", name: "تتسم رؤية المعهد/المركز بالوضوح والتحديد", procedures: ["تم التشاور مع (الدكتور – الأستاذ – الخبير) لصياغة الرؤية بكلمات واضحة ومحددة، كما تم مراجعتها لغوياً"], evidenceInternal: ["الوثيقة الموقعة من الخبير متضمنة النص"], evidenceExternal: [] },
+                { id: "p1-1-1-2", number: "1-1-1-2", name: "يشارك في صياغة الرؤية ممثلون عن الأطراف المعنية", procedures: ["تم تكليف جميع العاملين بالإدارة باقتراح رؤية ورسالة للجهة", "تم عقد اجتماع برئاسة مدير الإدارة لمناقشة المقترحات"], evidenceInternal: ["أحد الأوراق المقدمة من العاملين بالرؤية والرسالة المقترحة", "محضر الاجتماع الذي تم مناقشة الرؤية والرسالة به"], evidenceExternal: ["الأوراق المقدمة من العاملين بالرؤية والرسالة المقترحة", "محضر الاجتماع الذي تم مناقشة الرؤية والرسالة به"] },
+                { id: "p1-1-1-3", number: "1-1-1-3", name: "تعي الأطراف المعنية رؤية المعهد/المركز", procedures: ["تعليق لوحات إعلانية بعدة أماكن مختلفة", "عقد اجتماعات دورية مع جميع العاملين بالجهة", "توزيع محضر إعلان يتم التوقيع عليه بالعلم", "الطوابير الثقافية الأسبوعية والشهرية", "دليل المتدرب"], evidenceInternal: ["أماكن توزيع اللوحات الإعلانية", "أحد محاضر الاجتماعات الدورية", "محضر الإعلان", "الدرس الثقافي من دفتر الطوابير الثقافية"], evidenceExternal: ["محاضر الاجتماعات الدورية", "دفتر الطوابير الثقافية", "دليل المتدرب"] }
+              ]
+            },
+            {
+              id: "i1-1-2", number: "1-1-2", name: "توجد وثيقة واضحة ومعلنة لرسالة المعهد/المركز",
+              practices: [
+                { id: "p1-1-2-1", number: "1-1-2-1", name: "تتسم رسالة المعهد/المركز بالوضوح والتحديد", procedures: ["نفس إجراء الممارسة 1-1-1-1"], evidenceInternal: ["نفس دليل الممارسة 1-1-1-1"], evidenceExternal: [] },
+                { id: "p1-1-2-2", number: "1-1-2-2", name: "يشارك في صياغة الرسالة ومراجعتها ممثلون عن الأطراف المعنية", procedures: ["نفس إجراءات الممارسة 1-1-1-2"], evidenceInternal: ["نفس دليل الممارسة 1-1-1-2"], evidenceExternal: [] },
+                { id: "p1-1-2-3", number: "1-1-2-3", name: "تعي الأطراف المعنية رسالة المعهد/المركز", procedures: ["نفس إجراءات الممارسة 1-1-1-3"], evidenceInternal: ["نفس أدلة الممارسة 1-1-1-3"], evidenceExternal: [] },
+                { id: "p1-1-2-4", number: "1-1-2-4", name: "تتسق الرسالة مع رؤية المعهد/المركز", procedures: ["تم تطبيق النموذج الإرشادي للرؤية والرسالة والذي تم مراعاة ترابط الرؤية والرسالة مع بعضهم البعض"], evidenceInternal: ["أحد الأوراق المقدمة من العاملين بالرؤية والرسالة المقترحة محفوظة بالبند 1-1-1-2"], evidenceExternal: ["الأوراق المقدمة من العاملين بالرؤية والرسالة المقترحة محفوظة بالبند 1-1-1-2"] }
+              ]
+            }
+          ]
+        },
+        {
+          id: "s1-2", number: "1-2", name: "الخطة الإستراتيجية",
+          indicators: [
+            {
+              id: "i1-2-1", number: "1-2-1", name: "التحليل البيئي",
+              practices: [
+                { id: "p1-2-1-1", number: "1-2-1-1", name: "يشتمل التحليل البيئي على البيئة الداخلية والخارجية للمعهد/المركز", procedures: ["تم عمل تحليل بيئي واشتمل على البيئة الداخلية والخارجية (إرشادات رقم 2 بالدليل الإرشادي)"], evidenceInternal: ["نتائج التحليل البيئي"], evidenceExternal: ["وثيقة التحليل البيئي"] },
+                { id: "p1-2-1-2", number: "1-2-1-2", name: "يستخدم المعهد/المركز وسائل مناسبة ومتعددة عند إجراء التحليل البيئي", procedures: ["تم استخدام وسائل مناسبة وملائمة في عمل التحليل البيئي وهي:", "استبيان للعاملين بالإدارة", "واجتماعات للعاملين بالإدارة"], evidenceInternal: ["أحد استبيانات رأي العاملين", "اجتماع مناقشة التحليل البيئي"], evidenceExternal: ["استبيانات العاملين", "اجتماع مناقشة التحليل البيئي"] },
+                { id: "p1-2-1-3", number: "1-2-1-3", name: "يشارك مختلف الأطراف داخل وخارج المعهد/المركز في التحليل البيئي", procedures: ["تم مشاركة العاملين بالإدارة في التحليل البيئي"], evidenceInternal: ["أحد استبيانات الرأي للتحليل البيئي المقدم من العاملين بالإدارة محفوظة بالبند 1-2-1-2"], evidenceExternal: ["استبيانات العاملين محفوظة بالبند 1-2-1-2"] }
+              ]
+            },
+            {
+              id: "i1-2-2", number: "1-2-2", name: "الأهداف الاستراتيجية",
+              practices: [
+                { id: "p1-2-2-1", number: "1-2-2-1", name: "يضع المعهد/المركز أهداف استراتيجية وفق نتائج التحليل البيئي", procedures: ["تم وضع الأهداف الاستراتيجية وفق نتائج التحليل البيئي"], evidenceInternal: ["نتائج التحليل البيئي محفوظة بالبند 1-2-1-1", "الأهداف الاستراتيجية للإدارة خلال الخمس سنوات القادمة"], evidenceExternal: ["الخطة الإستراتيجية"] },
+                { id: "p1-2-2-2", number: "1-2-2-2", name: "وجود مشاركات ومناقشات من جانب أطراف مختلفة داخل وخارج المعهد في صياغة الأهداف الاستراتيجية", procedures: ["تم عقد اجتماع مع الأطراف المعنية (العاملين – المدربين – المحاضرين - المتدربين – ممثل القطاع/المديرية - الجهات المستفيدة) لمناقشة الأهداف الاستراتيجية"], evidenceInternal: ["محضر الاجتماع"], evidenceExternal: [] },
+                { id: "p1-2-2-3", number: "1-2-2-3", name: "يدرس المعهد/المركز مدى اسهام الأهداف الاستراتيجية في تحقيق رسالته", procedures: ["تحليل نقاط (الارتباط - الاتفاق) بين الأهداف الاستراتيجية ورسالة المؤسسة"], evidenceInternal: ["وثيقة تحليل الأهداف الاستراتيجية"], evidenceExternal: [] },
+                { id: "p1-2-2-4", number: "1-2-2-4", name: "يتخذ المعهد/المركز خطوات منهجية لإعداد الخطة الاستراتيجية ويتأكد من اكتمال عناصرها الرئيسية", procedures: ["تشكيل فريق من كافة التخصصات المعنية", "وضع اطار زمني لإعداد الخطة", "إجراء تحليل بيئي", "عقد اجتماع لمناقشة نتائج التحليل البيئي لاستخلاص أهداف الخطة الاستراتيجية"], evidenceInternal: ["قرار تشكيل الفريق موضح به اطار زمني لإعداد الخطة", "التحليل البيئي محفوظ بالبند 1-2-1-1", "محضر اجتماع مناقشة نتائج التحليل البيئي"], evidenceExternal: [] },
+                { id: "p1-2-2-5", number: "1-2-2-5", name: "يراعي الارتباط بين استراتيجية المعهد/المركز واستراتيجية قطاع التدريب", procedures: ["تحليل نقاط الاتفاق بين استراتيجية الإدارة واستراتيجية قطاع التدريب"], evidenceInternal: ["وثيقة التحليل"], evidenceExternal: [] },
+                { id: "p1-2-2-6", number: "1-2-2-6", name: "يتأكد المعهد/المركز أن أهدافه الاستراتيجية واضحة وقابلة للتحقق والقياس", procedures: ["مقارنة لمراجعة كل هدف من الأهداف الاستراتيجية ليكون SMART:", "محددة (Specific)", "قابلة للقياس (Measurable)", "قابلة للتحقيق (Achievable)", "واقعية (Realistic)", "محددة بإطار زمني محدد (Time Bound)"], evidenceInternal: ["وثيقة المقارنة"], evidenceExternal: [] },
+                { id: "p1-2-2-7", number: "1-2-2-7", name: "يتم نشر الأهداف الاستراتيجية للمعهد/المركز من خلال الوسائل المختلفة", procedures: ["نفس إجراءات الممارسة 1-1-1-3"], evidenceInternal: ["نفس أدلة الممارسة 1-1-1-3"], evidenceExternal: [] }
+              ]
+            },
+            {
+              id: "i1-2-3", number: "1-2-3", name: "السمات التنافسية للمعهد/المركز ودورها في التدريب",
+              practices: [
+                { id: "p1-2-3-1", number: "1-2-3-1", name: "تبرز الاستراتيجية بوضوح دور المعهد/المركز المتميز في التدريب", procedures: ["من خلال إجراء التحليل البيئي تم رصد النقاط التي تميز المؤسسة في التدريب، وتم إدراجها في الخطة الاستراتيجية"], evidenceInternal: ["الخطة الاستراتيجية وموضح بها الدور المتميز للإدارة"], evidenceExternal: [] },
+                { id: "p1-2-3-2", number: "1-2-3-2", name: "يتم قياس ملامح التميز للمعهد/المركز التي تميزه عن غيره", procedures: ["تم قياس ملامح تميز عن طريق مقارنتها مع ملامح التميز بالجهات الأخرى"], evidenceInternal: ["وثيقة المقارنة"], evidenceExternal: [] },
+                { id: "p1-2-3-3", number: "1-2-3-3", name: "يوجد آليات لتحسين الوضع التنافسي للمعهد/المركز", procedures: ["تم إدراج أهداف في الخطة الاستراتيجية لتحسين الوضع التنافسي بناء على وثيقة المقارنة الخاصة برصد ملامح التميز، محفوظة بالبند 1-2-3-2"], evidenceInternal: ["الخطة الاستراتيجية موضح بها الأهداف المدرجة لتحسين الوضع التنافسي"], evidenceExternal: [] }
+              ]
+            },
+            {
+              id: "i1-2-4", number: "1-2-4", name: "الخطة التنفيذية لتطبيق استراتيجية المعاهد والمراكز التدريبية",
+              practices: [
+                { id: "p1-2-4-1", number: "1-2-4-1", name: "توجد خطة تنفيذية لتطبيق استراتيجية المعهد/المركز", procedures: ["تم وضع خطة تنفيذية لتطبيق استراتيجية الإدارة"], evidenceInternal: ["الخطة التنفيذية"], evidenceExternal: ["الخطة التنفيذية"] },
+                { id: "p1-2-4-2", number: "1-2-4-2", name: "تغطي الخطة التنفيذية الأهداف الاستراتيجية للمعهد/المركز", procedures: ["تم التأكد من أن الخطة التنفيذية لتغطي الأهداف الاستراتيجية"], evidenceInternal: ["الخطة التنفيذية"], evidenceExternal: [] },
+                { id: "p1-2-4-3", number: "1-2-4-3", name: "تحديد دقيق للمسؤوليات وآليات التنفيذ للأنشطة والمهام التي تتضمنها الخطة", procedures: ["تم تحديد مسؤولية التنفيذ لكل نشاط ومهمة داخل الخطة التنفيذية"], evidenceInternal: [], evidenceExternal: ["الخطة التنفيذية"] },
+                { id: "p1-2-4-4", number: "1-2-4-4", name: "تتضمن الخطة الجدول الزمني للتنفيذ", procedures: ["تم وضع جدول زمني للتنفيذ داخل الخطة التنفيذية"], evidenceInternal: [], evidenceExternal: ["الخطة التنفيذية"] },
+                { id: "p1-2-4-5", number: "1-2-4-5", name: "يوجد بالخطة مؤشرات للتقييم", procedures: ["تم وضع مؤشرات للتقييم داخل الخطة التنفيذية"], evidenceInternal: [], evidenceExternal: ["الخطة التنفيذية"] },
+                { id: "p1-2-4-6", number: "1-2-4-6", name: "تمت ترجمة الخطة إلى موازنة مالية", procedures: ["تم إضافة التكلفة المالية بالخطة"], evidenceInternal: [], evidenceExternal: ["الخطة التنفيذية"] },
+                { id: "p1-2-4-7", number: "1-2-4-7", name: "يعد المعهد/المركز تقارير دورية نصف سنوية لمتابعة تنفيذ الخطة التنفيذية", procedures: ["تم اعداد تقارير دورية نصف سنوية لمتابعة تنفيذ الخطة التنفيذية"], evidenceInternal: [], evidenceExternal: ["صورة ضوئية للتقارير السابقة"] },
+                { id: "p1-2-4-8", number: "1-2-4-8", name: "يرصد المعهد/المركز اسباب عدم انجاز مستويات الاداء المستهدفة بالخطة التنفيذية وتتخذ الاجراءات التصحيحية المناسبة", procedures: ["تم اعداد تقرير للوقوف على اسباب عدم انجاز مستويات الاداء المستهدفة بالخطة التنفيذية"], evidenceInternal: [], evidenceExternal: ["احد التقارير السابق ذكرها"] }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      id: "d2", name: "القيادة والحوكمة", icon: "👑", color: "#e0b45a", colorLight: "#e0b45a", description: "",
+      standards: [
+        {
+          id: "s2-1", number: "2-1", name: "توافر نظام للقيادة الرشيدة",
+          indicators: [
+            {
+              id: "i2-1-1", number: "2-1-1", name: "تتبع القيادة أساليب ديمقراطية في الادارة وصنع القرار",
+              practices: [
+                { id: "p2-1-1-1", number: "2-1-1-1", name: "تحرص القيادة على تفعيل لوائح وقرارات مجلس التعليم ومهامه بناء على لائحة المعهد او القرار الادارى الصادر من قائد او مدير المعهد/المركز", procedures: ["تم تشكيل ( لجنة مجلس التعليم بالمعهد / لجنة التدريب الفرعية بالمديرية ).", "تعقد اجتماعات اللجنة بشكل دوري ويتم مناقشة: التصديق علي الأوامر المستديمة، اقتراح تعديل وتطوير مناهج الفرق، اعتماد خطة تأهيل العاملين، بحث المشكلات العامة المتعلقة بالتدريب، بحث ومراجعه نتائج التفتيش علي المنشأة، وضع خطة الفرق التدريبية عن العام التدريبي المقبل، تقييم المناهج والاختبارات للفرق المختلفة.", "يتم اتخاذ قرارات بعد البحث والمناقشة والتقييم.", "يتم وضع خطة تنفيذية لمتابعة تفعيل قرارات المجلس."], evidenceInternal: ["قرار تشكيل اللجنة.", "أحد محاضر الاجتماعات."], evidenceExternal: ["المحاضر الشهرية لاجتماع اللجنة."] },
+                { id: "p2-1-1-2", number: "2-1-1-2", name: "توفر القيادة نظاما لتلقي المقترحات والشكاوي، والتعامل معها", procedures: ["يتم تلقي المقترحات والشكاوي عن طريق: انشاء عدة صناديق لتلقي الشكاوى والمقترحات وتم توزيعها في مختلف الأماكن، تخصيص رقم تليفون لتلقي الشكاوى والمقترحات، إنشاء دفتر لتلقي الشكاوى والمقترحات.", "يتم تجميع المقترحات والشكاوي عن طريق فريق مكون من أطراف مختلفة، ثم يتم صياغتها في مذكرة عرض.", "يتم مناقشة المقترحات والشكاوي في الاجتماعات الدورية التي يعقدها مدير الادارة لدراستها ووضع حلول للمشاكل مع وضع آليات لتنفيذ المقترحات المناسبة.", "يتم عمل محضر إجتماع بنتائج المناقشة، مع إدراجها بالخطة التنفيذية."], evidenceInternal: ["صورة لصندوق الشكاوى.", "دفتر تلقي المقترحات والشكاوي.", "أحد الشكاوى المقدمة من العاملين بالإدارة.", "أحد المحاضر التي تم مناقشة احد الشكاوي أو المقترحات به.", "الخطة التنفيذية.", "صورة (قبل وبعد) من تلافي الشكوى أو تنفيذ المقترح."], evidenceExternal: ["ملف حفظ الشكاوى والمقترحات.", "ملف حفظ محاضر مدير الادارة."] },
+                { id: "p2-1-1-3", number: "2-1-1-3", name: "تعمل القيادة على تحقيق رضا العاملين والمعنيين بالأمر", procedures: ["استطلاع رأي العاملين بصورة دورية.", "تحليل استطلاعات الرأي.", "اتخاذ خطوات لتحسين الرضا الوظيفي.", "إعادة استطلاع الرأي لتقييم الي اي مدي تم تحسين الرضا الوظيفي."], evidenceInternal: ["أحد استطلاعات الرأي.", "تحليل استطلاعات الرأي.", "إجراءات تحسين الرضا الوظيفي."], evidenceExternal: ["حفظ استطلاع الرأي محفوظ بأرشيف الادارة."] },
+                { id: "p2-1-1-4", number: "2-1-1-4", name: "تحرص القيادة على مشاركة الأطراف المعنية في صنع القرار", procedures: ["يتم مشاركة جميع العاملين بالإدارة عن طريق الاجتماعات قبل اتخاذ القرارات الهامة."], evidenceInternal: ["أحد الاجتماعات التي تم بها مناقشة العاملين بالإدارة لاتخاذ القرارات."], evidenceExternal: ["ملف حفظ محاضر مدير الادارة."] }
+              ]
+            },
+            {
+              id: "i2-1-2", number: "2-1-2", name: "تدعم القيادة التنمية المهنية لجميع العاملين بالمعهد/المركز",
+              practices: [
+                { id: "p2-1-2-1", number: "2-1-2-1", name: "تدعم القيادة وحدة الجودة والتدريب عليها", procedures: ["تشكيل وحدة / لجنة للجودة.", "اعطاء كافة الصلاحيات اللازمة لممارسة أعمالها.", "متابعه تنفيذ أعمال لجنة الجودة مع تذليل العقبات.", "حصول العاملين بوحدة الجودة على فرق الجودة.", "عقد دورات محلية للتدريب علي تطبيق الجودة."], evidenceInternal: ["قرار تشكيل وحدة / لجنة للجودة.", "الدورات المحلية للتدريب علي تطبيق الجودة.", "شهادة الحصول علي فرق الجودة.", "كشف بأسماء الحاصلين علي فرق الجودة."], evidenceExternal: [] },
+                { id: "p2-1-2-2", number: "2-1-2-2", name: "تدعم القيادة المتميزين من العاملين", procedures: ["يتم تكريم العاملين المتميزين (كل 3 شهور على الأقل) ومنحهم شهادة تقدير على مجهوداتهم."], evidenceInternal: ["أسماء المتميزين المكرمين خلال العام التدريبي الحالي.", "أحد شهادات التكريم لاحد الافراد."], evidenceExternal: ["أسماء المتميزين المكرمين خلال الأعوام السابقة."] },
+                { id: "p2-1-2-3", number: "2-1-2-3", name: "تشجع القيادة العاملين على التنمية المهنية المستدامة (تنمية المهارات الشخصية)", procedures: ["موافقة السيد المدير على التقدم بالالتحاق في (دورة تدريبية / دبلومة / ماجستير / دكتوراه) الخاصة بأحد العاملين.", "عقد دورات محلية لتنمية المهارات الشخصية للعاملين في مجالات مختلفة (فن التعامل مع الغير / مواجهه ضغوط العمل / تنظيم الوقت / إدارة الأولويات)."], evidenceInternal: ["موافقة السيد المدير على التقدم للالتحاق لأحد العاملين.", "أحد الدورات المحلية."], evidenceExternal: ["كشف بأسماء العاملين المشاركين بالدورات المحلية."] }
+              ]
+            }
+          ]
+        },
+        {
+          id: "s2-2", number: "2-2", name: "توافر نظام للحوكمة",
+          indicators: [
+            {
+              id: "i2-2-1", number: "2-2-1", name: "توفر القيادة نظاماً لإدارة المعهد/المركز يعكس القوانين واللوائح المنظمة للعمل",
+              practices: [
+                { id: "p2-2-1-1", number: "2-2-1-1", name: "يوجد حصر بالقوانين واللوائح والتعليمات الواجب علي المعهد/المركز تطبيقها", procedures: ["تم حصر القوانين واللوائح والتعليمات الواجب تطبيقها، علي سبيل المثال (قانون هيئة الشرطة، قانون العاملين المدنيين، الكتب الدورية، لائحة المنشآت التدريبية، الوصف الوظيفي، إجراءات السلامة والصحة المهنية، لائحة أمن المنشأة، لائحة إنضباط الفرق التدريبية)."], evidenceInternal: ["حصر القوانين واللوائح الواجب تطبيقها."], evidenceExternal: ["قانون هيئة الشرطة، قانون العاملين المدنيين، الكتب الدورية، لائحة المنشآت التدريبية، الوصف الوظيفي، إجراءات السلامة والصحة المهنية، لائحة أمن المنشأة، لائحة إنضباط الفرق التدريبية."] },
+                { id: "p2-2-1-2", number: "2-2-1-2", name: "توجد توعية بالقوانين واللوائح والتعليمات الواجب على المعهد/المركز تطبيقها", procedures: ["تم توعية جميع العاملين بالجهة بالقوانين واللوائح والتعليمات الواجب تطبيقها من خلال: إجتماعات القائد الدورية مع العاملين، إجتماعات رؤساء الأقسام مع المرؤوسين، الطوابير الثقافية، التمام اليومي، لوحات تعريفية، توزيع محضر إعلان يتم التوقيع عليه بالعلم."], evidenceInternal: ["محضر إجتماعات القائد.", "محضر إجتماعات رؤساء الأقسام.", "دفتر الطوابير الثقافية.", "اللوحات التعريفية.", "محضر الإعلان."], evidenceExternal: [] },
+                { id: "p2-2-1-3", number: "2-2-1-3", name: "يتحقق المعهد/المركز من تطبيق جميع القوانين واللوائح والتعليمات الواجب تطبيقها", procedures: ["وضع خطة سنوية (مراجعة / تفتيش) تتم كل ثلاث أشهر للتحقق من تطابق كل بند من القوانين واللوائح والاشتراطات علي مختلف الأقسام."], evidenceInternal: ["خطة (مراجعة / تفتيش) ربع سنوية.", "أحد تقارير المراجعة."], evidenceExternal: ["حفظ تقارير المراجعة.", "حفظ خطط (مراجعة / تفتيش)."] }
+              ]
+            },
+            {
+              id: "i2-2-2", number: "2-2-2", name: "توفر القيادة نظاماً لضبط الوثائق وحفظ المعلومات بالمعهد/المركز",
+              practices: [
+                { id: "p2-2-2-1", number: "2-2-2-1", name: "تحفظ الإدارة السجلات وفق نظام واضح ومحدد", procedures: ["تقسيم دواليب حفظ الأرشيف وتكويده.", "تقسيم السجلات طبقاً للمحتوي.", "إعطاء رقم كودي لكل سجل."], evidenceInternal: ["صورة للأرشيف."], evidenceExternal: [] },
+                { id: "p2-2-2-2", number: "2-2-2-2", name: "تصنف السجلات حسب نوع الوثائق التي تحتويها", procedures: ["تصنيف الوثائق، علي سبيل المثال: المكاتبات الخارجية (الصادر / الوارد)، المكاتبات الداخلية للاقسام، الكتب الدوريه (تقسم طبقاً للجهات الصادرة منها)."], evidenceInternal: ["حصر سجلات الادارة."], evidenceExternal: [] },
+                { id: "p2-2-2-3", number: "2-2-2-3", name: "تستخدم السجلات من قبل الموظفين المعنيين فقط", procedures: ["تم تحديد السجلات المصرح بها لكل موظف لاستخدامها."], evidenceInternal: ["توزيع استخدام الموظفين للسجلات."], evidenceExternal: [] },
+                { id: "p2-2-2-4", number: "2-2-2-4", name: "تحافظ الإدارة علي سرية المعلومات التي بالسجلات", procedures: ["التنبيه على جميع العاملين بعدم تداول المعلومات الواردة بسجلات الإدارة.", "التنبيه بمضمون القرار الوزاري رقم (1833) لسنة 2019م وكذا مضمون الكتاب الدوري رقم (60) لسنة 2019م بشأن تداول المكاتبات والكتب الدورية داخل وزارة الداخلية.", "تعيين مسؤول محدد للأرشيف والمكاتبات."], evidenceInternal: ["القرار الوزاري رقم (1833) لسنة 2019م.", "الكتاب الدوري رقم (60) لسنة 2019م.", "قرار تعيين مسؤول الأرشيف."], evidenceExternal: [] },
+                { id: "p2-2-2-5", number: "2-2-2-5", name: "تستخدم الإدارة نظام الأرشفة الإلكترونية للوثائق والمعلومات", procedures: ["تم انشاء نظام للأرشفة الالكترونية للوثائق والمعلومات."], evidenceInternal: ["صورة لنظام الارشفة الالكترونية."], evidenceExternal: [] },
+                { id: "p2-2-2-6", number: "2-2-2-6", name: "تحتفظ الإدارة بالسجلات والوثائق لفتره من الزمن ومن ثم تتخلص منها حسب اللوائح", procedures: ["حصر بالقواعد والمدد الزمنية لحفظ السجلات والوثائق.", "يتم تشكيل لجنة لفحص الوثائق والسجلات ومطابقة المدد الزمنية.", "يتم التخلص من السجلات وإثباتها في محضر إعدام الوثائق."], evidenceInternal: ["القواعد والمدد الزمنية لحفظ السجلات والوثائق.", "لجنة فحص الوثائق والسجلات.", "احد محاضر اللجنة للإعدام."], evidenceExternal: [] },
+                { id: "p2-2-2-7", number: "2-2-2-7", name: "توفر القياده قواعد للبيانات تساعدها علي اتخاذ القرارات", procedures: ["توفير قواعد بيانات إحصائية متجدده تتكون من عدة محاور: القوه الإستعابية للجهة، القوة البشرية العاملة بالجهة، أنواع وأعداد ميادين التدريب ومساعدات التدريب، التجهيزات اللوجستية، أنواع الفرق التدريبية والفئة المستهدفة، بيان إحصائي بنتيجة الفرق التدريبية، بيان بإصابات التدريب."], evidenceInternal: ["القوه الإستيعابية للجهة.", "القوة البشرية العاملة بالجهة.", "أنواع وأعداد ميادين التدريب ومساعدات التدريب.", "التجهيزات اللوجستية.", "أنواع الفرق التدريبية والفئة المستهدفة.", "بيان إحصائي بنتيجة الفرق التدريبية.", "بيان بإصابات التدريب."], evidenceExternal: [] }
+              ]
+            },
+            {
+              id: "i2-2-3", number: "2-2-3", name: "الشفافية",
+              practices: [
+                { id: "p2-2-3-1", number: "2-2-3-1", name: "تتيح المؤسسة المعلومات الكافية عنها في الوسائل المختلفة", procedures: ["طباعة دليل تعريفي للجهة.", "نشر مشروع خبري عن أهم الفعاليات المنعقدة بالجهة."], evidenceInternal: ["الدليل التعريفي للجهة.", "مشروع خبري."], evidenceExternal: [] },
+                { id: "p2-2-3-2", number: "2-2-3-2", name: "تحرص المؤسسة علي تنويع المعلومات المتاحة عنها وتحديثها بصفة دورية", procedures: ["ادراج معلومات عن الجهة بالدليل التعريفي مثل: الرؤية، الرسالة، أهداف الجهة، معدلات الأداء، الإمكانيات البشرية والمادية واللوجستية، أنواع الفرق التدريبية.", "تحديث الدليل التعريفي للإدارة كل عام."], evidenceInternal: ["الدليل التعريفي."], evidenceExternal: [] }
+              ]
+            },
+            {
+              id: "i2-2-4", number: "2-2-4", name: "توفر القيادة آليات للحد من تغيب المتدربين",
+              practices: [
+                { id: "p2-2-4-1", number: "2-2-4-1", name: "توفر القيادة نظاماً لرصد أسباب حالات الغياب المرتفع", procedures: ["يتم مراجعة الغياب بالفرق التدريبية بشكل يومي.", "تم وضع معيار إذا تعدى الغياب 30% يتم اتخاذ إجراءات معينة.", "اجتماع مع المتدربين للوقوف علي اسباب الغياب.", "استطلاعات الرأي للوقوف علي اسباب الغياب."], evidenceInternal: ["يومية أحد الفرق.", "اجتماع مع المتدربين.", "أحد استطلاعات الرأي."], evidenceExternal: [] },
+                { id: "p2-2-4-2", number: "2-2-4-2", name: "تتخذ القيادة إجراءات للحدّ من أسباب الغياب", procedures: ["عقد اجتماع لإيجاد حلول لخفض نسبة الغياب المرتفع، مثال: بعد أماكن التدريب (يتم توفير خطوط لنقل المتدربين)."], evidenceInternal: ["صورة ضوئية لأحد الاجتماعات الذي تم فيه مناقشة نسبة الغياب المرتفعة ومتضمن به الإجراءات المتخذة."], evidenceExternal: [] }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      id: "d3", name: "الموارد البشرية", icon: "👥", color: "#6fcf97", colorLight: "#6fcf97", description: "",
+      standards: [
+        {
+          id: "s3-1", number: "3-1", name: "الهيكل التنظيمي واختيار القيادات",
+          indicators: [
+            {
+              id: "i3-1-1", number: "3-1-1", name: "الهيكل التنظيمي",
+              practices: [
+                { id: "p3-1-1-1", number: "3-1-1-1", name: "الهيكل التنظيمي للمعهد / المركز ملائم لحجمه ونشاطه ومستوفي", procedures: ["تم عمل وصف تحليلياً لطبيعة المؤسسة وحجمها وأنشطتها، عن طريق طرح أسئلة عن:", "طبيعة أنشطة المؤسسة: هل توجد ازدواجية في المهام؟ هل هناك أنشطة غير ضرورية؟ هل توجد فجوة في التغطية؟", "تقييم الهيكل الحالي: هل يوجد تأخير في اتخاذ القرارات؟ هل يوجد تضارب في الصلاحيات والمسئوليات؟ هل يوجد ازدواجية في المهام؟ هل يوجد ضعف في التنسيق بين الأقسام؟ هل يوجد شكاوي متكررة من العاملين والمدربين والمحاضرين والمتدربين؟ هل يوجد انخفاض في معدلات الأداء؟"], evidenceInternal: ["الهيكل التنظيمي للإدارة."], evidenceExternal: ["تحليل طبيعة أنشطة المؤسسة + تقييم الهيكل الحالي.", "تحليل الفجوات (بين الوضع الحالي – والوضع المثالي)."] },
+                { id: "p3-1-1-2", number: "3-1-1-2", name: "التوصيف الوظيفي شامل وموثق لجميع وظائف للمعهد / المركز", procedures: ["توصيف كل وظيفة من وظائف الجهة (اشتراطات شغل الوظيفة)."], evidenceInternal: ["الوصف الوظيفي."], evidenceExternal: [] },
+                { id: "p3-1-1-3", number: "3-1-1-3", name: "تحديد دقيق لمسؤوليات وأدوار جميع العاملين بالجهاز الإداري للمعهد / المركز", procedures: ["تم تحديد المسؤوليات لجميع العاملين من خلال الوصف الوظيفي (مهام وواجبات شغل الوظيفة)."], evidenceInternal: ["المسؤوليات المكلف بها جميع العاملين."], evidenceExternal: [] },
+                { id: "p3-1-1-4", number: "3-1-1-4", name: "تكليف جميع العاملين بالجهاز الإداري للمعهد / المركز بمسؤولياتهم وأدوارهم", procedures: ["إعلان جميع العاملين بقرار اداري باختصاص كل موظف بناء علي الوصف الوظيفي."], evidenceInternal: ["صورة من القرار الإداري وتوقيع الموظف المسؤول امام اختصاص عمله."], evidenceExternal: [] },
+                { id: "p3-1-1-5", number: "3-1-1-5", name: "يتم استخدام التوصيف الوظيفي في التعيين والنقل والندب للوظائف المختلفة", procedures: ["من خلال القرار الوزاري للتنقلات.", "من خلال الحركة الداخلية طبقا لمتطلبات الوصف الوظيفي."], evidenceInternal: ["القرار الوزاري.", "الحركة الداخلية."], evidenceExternal: [] },
+                { id: "p3-1-1-6", number: "3-1-1-6", name: "يوجد شكل تنظيمي (وحده / لجنة) للتعامل مع الأزمات والكوارث يصدر بها قرار اداري", procedures: ["تشكيل لجنة لإدارة الازمات.", "مرحلة الوقاية (ما قبل الأزمة): التخطيط الاستباقي - عقد اجتماع قبل حدوث الازمات (مرحلة الوقاية) لمناقشة: حصر الازمات والكوارث الوارد التعرض لها، إعداد سيناريوهات لمواجهه الأزمات والكوارث المتوقعة، توزيع الأدوار، انشاء خطة طوارئ شاملة.", "التدريب والتأهيل: تدريب فرق ادارة الازمات، اجراء محاكاه علي السيناريوهات، توعية جميع العاملين بالاجراءات الواجب عليهم اتخاذها اثناء الازمة.", "مرحلة بعد الأزمة: اجتماع بعد الأزمات لمناقشة: تحليل أسباب الأزمة، تقييم فاعلية الاستجابة، تحديث خطة الطوارئ."], evidenceInternal: ["قرار تشكيل لجنة لإدارة الازمات.", "بيان تدريب فرق ادارة الازمات.", "توعية العاملين بالاجراءات.", "بيان تواريخ عقد السيناريوهات."], evidenceExternal: ["خطة طوارئ شاملة.", "حفظ اجتماعات إدارة الازمات."] }
+              ]
+            },
+            {
+              id: "i3-1-2", number: "3-1-2", name: "اختيار القيادات",
+              practices: [
+                { id: "p3-1-2-1", number: "3-1-2-1", name: "معايير اختيار القيادات معلنة بالطرق المتعارف عليها", procedures: ["تم اعلان العاملين بمعايير اختيار القيادات عن طريق:", "محضر إعلان بمعايير شغل الوظائف المنصوص عليها بالوصف الوظيفي."], evidenceInternal: ["محضر الإعلان."], evidenceExternal: [] },
+                { id: "p3-1-2-2", number: "3-1-2-2", name: "يتم اختيار القيادات طبقا لمعايير الاختيار المعلنة", procedures: ["اختيار القيادات طبقاً للمعايير المنصوص عليها في الوصف الوظيفي لكل وظيفة."], evidenceInternal: [], evidenceExternal: ["كتاب الوصف الوظيفي."] }
+              ]
+            }
+          ]
+        },
+        {
+          id: "s3-2", number: "3-2", name: "توظيف الموارد البشرية وتنميتها",
+          indicators: [
+            {
+              id: "i3-2-1", number: "3-2-1", name: "يوظف المعهد / المركز الموارد البشرية لتحسين الأداء",
+              practices: [
+                { id: "p3-2-1-1", number: "3-2-1-1", name: "يوظف المعهد / المركز الموارد البشرية التوظيف الأمثل لتحقيق نواتج التدريب المستهدفة", procedures: ["قياس قدرات وامكانيات العاملين بالادارة.", "تعيين العاملين بما يتوافق مع قدراتهم وامكانياتهم."], evidenceInternal: ["السيرة الذاتية للعاملين (الفرق التدريبية – الدرجات العلمية - التدرج الوظيفي – البعثات والمأموريات الخارجية).", "التقييم الشهري للعاملين، محفوظ بالبند رقم 3-2-1-2."], evidenceExternal: [] },
+                { id: "p3-2-1-2", number: "3-2-1-2", name: "تنفذ للمعهد / المركز تقييم شهري لجميع العاملين ضباط، افراد، عاملين مدنيين من خلال نموذج استرشادي للتقارير السنوية", procedures: ["يتم عمل تقييم كل شهر للعاملين بالإدارة."], evidenceInternal: ["أحد التقييمات الشهرية."], evidenceExternal: ["حفظ التقييمات الشهرية."] }
+              ]
+            },
+            {
+              id: "i3-2-2", number: "3-2-2", name: "يوجد بالمعهد / المركز خطط للتنمية المهنية والبشرية",
+              practices: [
+                { id: "p3-2-2-1", number: "3-2-2-1", name: "يوجد بالمعهد/المركز خطة مفعلة للتنمية المهنية للعاملين", procedures: ["حصر الاحتياجات التدريبية للعاملين بالجهة.", "وضع خطة لتدريب العاملين بناء علي احتياجاتهم."], evidenceInternal: ["حصر الاحتياجات التدريبية.", "خطة التدريب الفرعية (نموذج 6 بالنماذج التطبيقية)."], evidenceExternal: [] },
+                { id: "p3-2-2-2", number: "3-2-2-2", name: "يوجد بالمعهد / المركز خطة مفعلة لتنمية مهارات الأمن والاطفاء والاخلاء والسلامة", procedures: ["حصر بالعاملين المرشحين لتلقي دورات تدريب علي إجراءات السلامة والصحة المهنية.", "وضع خطة لتدريب العاملين بناء علي احتياجاتهم.", "ترشيح العاملين لتلقي فرق خارجية في مجال الأمن والأطفاء.", "عقد دورات تدريب محلي."], evidenceInternal: ["حصر بالعاملين.", "خطة تدريب العاملين.", "ترشيح أحد العاملين لتلقي فرق خارجية.", "بيان بدورات التدريب المحلي.", "صورة من تدريب رجال الامن للعاملين بالجهة."], evidenceExternal: [] }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      id: "d4", name: "الموارد المادية", icon: "🏢", color: "#e08a5a", colorLight: "#e08a5a", description: "",
+      standards: [
+        {
+          id: "s4-1", number: "4-1", name: "توافر مباني ومساحات تدريب بمواصفات فنية مناسبة",
+          indicators: [
+            {
+              id: "i4-1-1", number: "4-1-1", name: "يتوافر بالمباني البنية الداعمة للعملية التدريبية والتعليمية",
+              practices: [
+                { id: "p4-1-1-1", number: "4-1-1-1", name: "يستوفى المبنى مواصفات الأمن والسلامة", procedures: ["قامت إدارة الحماية المدنية بفحص المبني وتقديم تقرير مبدئي لإستيفاء المبني لشروط ومواصفات الأمن والسلامة.", "مخاطبة الجهات المعنية لإستيفاء الإشتراطات (خطوط الحريق + الطفايات .......).", "إجراء مقايسة بالمطلوب."], evidenceInternal: ["تقرير الحماية المدنية.", "مخاطبة الجهات المعنية.", "المقايسة."], evidenceExternal: [] },
+                { id: "p4-1-1-2", number: "4-1-1-2", name: "تتناسب اعداد ومساحات وتجهيزات الفصول الدراسية مع أعداد المتدربين", procedures: ["حصر الفصول الدراسية وتجهيزاتها مع بيان القوة الإستعابية لها.", "تحديد أعداد المتدربين بالفرق التدريبية المختلفة وإدراجها بخطة التدريب السنوية.", "توزيع الدورات التدريبية للفرق المختلفة علي العام التدريبي مع مراعاه توزيع الاعداد والكثافات."], evidenceInternal: ["مرفق نموذج (1) من نماذج تقييم الموارد المادية.", "مواعيد الدورات التدريبية للعام التدريبي."], evidenceExternal: ["خطة التدريب (خطة تدريب الوزارة)."] },
+                { id: "p4-1-1-3", number: "4-1-1-3", name: "يتوافر بالمعهد / المركز ميادين تدريب ومعامل بالمساحات والمواصفات التي تتناسب مع اعداد المتدربين", procedures: ["حصر بالميادين والمعامل وتجهيزاتها مع بيان القوة الإستعابية لها.", "تحديد أعداد المتدربين بالفرق التدريبية المختلفة وإدراجها بخطة التدريب السنوية.", "توزيع الدورات التدريبية للفرق المختلفة علي العام التدريبي مع مراعاه توزيع الاعداد والكثافات."], evidenceInternal: ["مرفق نموذج (2) من نماذج تقييم الموارد المادية.", "مواعيد الدورات التدريبية للعام التدريبي."], evidenceExternal: ["خطة التدريب (خطة تدريب الوزارة)."] },
+                { id: "p4-1-1-4", number: "4-1-1-4", name: "يتوافر بالمعهد/المركز المخازن بالمواصفات المناسبة ( التجهيزات – المهمات – الاسلحة والذخائر – مساعدات التدريب)", procedures: ["توفير مخازن بالمواصفات التالية:", "• مساحات مناسبة", "• نظام تهوية كافي", "• انظمة المراقبة", "• اشتراطات الحماية المدنية", "• تجهيزها بدواليب وأرفف", "• أبواب مصفحة."], evidenceInternal: ["نظام تهوية.", "انظمة المراقبة.", "تقرير الحماية المدنية.", "الدواليب والأرفف.", "أبواب مصفحة."], evidenceExternal: [] },
+                { id: "p4-1-1-5", number: "4-1-1-5", name: "يتوافر بالمعهد / المركز خدمات مساندة متناسبة مع أعداد وخصائص المتدربين", procedures: ["تنفيذ جميع الاشتراطات الموجودة في النموذج رقم 3."], evidenceInternal: ["نموذج التقييم رقم 3.", "صورة فوتوغرافية لكل بند من بنود النموذج رقم 3 من أرض الواقع."], evidenceExternal: [] },
+                { id: "p4-1-1-6", number: "4-1-1-6", name: "تتناسب المباني الخاصة بالمعهد / المركز مع أعداد وخصائص المتدربين", procedures: ["تنفيذ جميع الاشتراطات الموجودة في النموذج رقم 4."], evidenceInternal: ["نموذج التقييم رقم 4.", "صورة فوتوغرافية لكل بند من بنود النموذج رقم 4 من أرض الواقع."], evidenceExternal: [] },
+                { id: "p4-1-1-7", number: "4-1-1-7", name: "تتوافر بالمعهد / المركز مكاتب إدارية مجهزة ومناسبة للعاملين بها", procedures: ["تنفيذ جميع الاشتراطات الموجودة في النموذج رقم 5."], evidenceInternal: ["نموذج التقييم رقم 5.", "صورة فوتوغرافية لكل بند من بنود النموذج رقم 5 من أرض الواقع."], evidenceExternal: [] },
+                { id: "p4-1-1-8", number: "4-1-1-8", name: "تتوافر بالمعهد/المركز استراحات مجهزة ومناسبة للعاملين بها", procedures: ["حصر بأعداد العاملين المقيمين.", "حصر بأعداد الإستراحات وقوتها الإستيعابية.", "تجهيز الإستراحات."], evidenceInternal: ["حصر بأعداد العاملين المقيمين.", "حصر بأعداد الإستراحات وقوتها الإستيعابية.", "تجهيز الإستراحات."], evidenceExternal: [] },
+                { id: "p4-1-1-9", number: "4-1-1-9", name: "تتوافر بالمعهد / المركز المرافق الصحية الصالحة للاستخدام", procedures: ["تنفيذ جميع الاشتراطات الموجودة في النموذج رقم 6."], evidenceInternal: ["نموذج التقييم رقم 6.", "صورة فوتوغرافية لكل بند من بنود النموذج رقم 6 من أرض الواقع."], evidenceExternal: [] },
+                { id: "p4-1-1-10", number: "4-1-1-10", name: "تتوافر بالمعهد / المركز التجهيزات اللازمة للرعاية الصحية", procedures: ["تنفيذ جميع الاشتراطات الموجودة في النموذج رقم 7."], evidenceInternal: ["نموذج التقييم رقم 7.", "صورة فوتوغرافية لكل بند من بنود النموذج رقم 7 من أرض الواقع."], evidenceExternal: [] }
+              ]
+            },
+            {
+              id: "i4-1-2", number: "4-1-2", name: "يتوافر بالمعهد / المركز المصادر اللازمة لتحقيق نواتج التدريب",
+              practices: [
+                { id: "p4-1-2-1", number: "4-1-2-1", name: "تتوافر بالمعهد/المركز الأجهزة والمعدات اللازمة للعملية التدريبية والصالحة للاستخدام", procedures: ["حصر بالتجهيزات المتاحة اللازمة للعملية التدريبية.", "حصر الإحتياجات من الأجهزة والمعدات اللازمة للعملية التدريبية."], evidenceInternal: ["حصر التجهيزات المتاحة.", "حصر الإحتياجات من الأجهزة والمعدات."], evidenceExternal: [] },
+                { id: "p4-1-2-2", number: "4-1-2-2", name: "يتوافر بالمعهد / المركز الكتالوجات اللازمة لتشغيل المعدات والاجهزة ومساعدات التدريب", procedures: ["حصر بالأجهزة والمعدات والكتالوجات الخاصة بتشغيلها.", "يتم الرجوع لها في حال تعطل أي من الأجهزة أو المعدات.", "تم توزيع تعليمات التشغيل علي المعنيين."], evidenceInternal: ["حصر الاجهزة والكتالوجات.", "توقيع المعنيين بالعلم علي تعليمات التشغيل."], evidenceExternal: ["ملف حفظ تعليمات التشغيل.", "ملف حفظ الكتالوجات."] },
+                { id: "p4-1-2-3", number: "4-1-2-3", name: "يتوافر بالمعهد / المركز مكتبة مجهزة ومزودة بمصادر معرفة تدعم عمليتي التدريب والتعليم", procedures: ["تنفيذ جميع الاشتراطات الموجودة في النموذج رقم 8."], evidenceInternal: ["نموذج التقييم رقم 8.", "صورة فوتوغرافية لكل بند من بنود النموذج رقم 8 من أرض الواقع."], evidenceExternal: [] },
+                { id: "p4-1-2-4", number: "4-1-2-4", name: "يتوافر بالمعهد / المركز أماكن مجهزة لممارسة الأنشطة الرياضية المختلفة", procedures: ["حصر بأماكن ممارسة الأنشطة الرياضية ( ملاعب – جيم – حمام سباحة ..... )."], evidenceInternal: ["حصر بأماكن ممارسة الأنشطة الرياضية.", "ميادين التدريب المختلفة."], evidenceExternal: [] }
+              ]
+            }
+          ]
+        },
+        {
+          id: "s4-2", number: "4-2", name: "توظيف الموارد المالية والمادية لدعم عمليتي التدريب والتعليم",
+          indicators: [
+            {
+              id: "i4-2-1", number: "4-2-1", name: "يوظف المعهد / المركز التجهيزات اللازمة لتحقيق نواتج التعليم والتدريب",
+              practices: [
+                { id: "p4-2-1-1", number: "4-2-1-1", name: "يوظف للمعهد / المركز تجهيزات الميادين في تحقيق نواتج التعليم والتدريب", procedures: ["يتم اختيار الميادين والتجهيزات طبقاً لنوع التدريب.", "يتم إدراجها بخطط دروس الفرق المختلفة."], evidenceInternal: ["صورة من خطة درس أحد الفرق.", "صورة المتدربين أثناء استخدامهم للتجهيزات."], evidenceExternal: [] },
+                { id: "p4-2-1-2", number: "4-2-1-2", name: "يوظف للمعهد / المركز الأجهزة والمعدات اللازمة للأنشطة التدريبية", procedures: ["يتم اختيار الأجهزة والمعدات طبقاً لنوع التدريب.", "يتم إدراجها بخطط دروس الفرق المختلفة."], evidenceInternal: ["صورة من خطة درس أحد الفرق.", "صورة المتدربين أثناء استخدامهم الأجهزة والمعدات."], evidenceExternal: [] },
+                { id: "p4-2-1-3", number: "4-2-1-3", name: "يوظف للمعهد / المركز مصادر المعرفة بالمكتبة لدعم عمليتي التدريب والتعلم", procedures: ["تم تزويد المكتبة بمصادر المعرفة التي تخدم العملية التدريبية.", "يتم إدراج زيارات للمكتبة بخطط دروس الفرق المختلفة."], evidenceInternal: ["صورة من خطة درس أحد الفرق.", "صورة المتدربين أثناء تواجدهم بالمكتبة."], evidenceExternal: [] }
+              ]
+            },
+            {
+              id: "i4-2-2", number: "4-2-2", name: "يوظف المعهد / المركز الموارد المالية المتاحة لتلبية احتياجاته",
+              practices: [
+                { id: "p4-2-2-1", number: "4-2-2-1", name: "يحدد المعهد/المركز احتياجاته المالية في ضوء الأوليات", procedures: ["تم حصر الاحتياجات وتحديد الأولويات.", "تم ترجمة الاحتياجات لتكلفة مادية.", "تم مخاطبة القطاع بالإحتياجات."], evidenceInternal: ["حصر الاحتياجات وتحديد الأولويات.", "التكلفة المادية.", "مخاطبة القطاع بالإحتياجات والردود عليها."], evidenceExternal: [] },
+                { id: "p4-2-2-2", number: "4-2-2-2", name: "يوظف المعهد/المركز الميزانية بفاعلية وفقا للاحتياجات", procedures: ["تصنف الاحتياجات الي ( ضرورية - مهمه – تحسينية ).", "توزيع الموارد للإحتياجات حسب التصنيف ( الضرورية أولاً ثم المهمة ثم التحسينية)."], evidenceInternal: ["محفوظة بملف خاص بماليات الإدارة."], evidenceExternal: [] }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      id: "d5", name: "المشاركة المجتمعية والمصداقية والأخلاق", icon: "🤝", color: "#c77dd1", colorLight: "#c77dd1", description: "",
+      standards: [
+        {
+          id: "s5-1", number: "5-1", name: "توافر شراكة فعالة بين المعهد / المركز والمتدرب والمجتمع",
+          indicators: [
+            {
+              id: "i5-1-1", number: "5-1-1", name: "يوفر المعهد / المركز بيئة داعمة للمشاركة المجتمعية",
+              practices: [
+                { id: "p5-1-1-1", number: "5-1-1-1", name: "ينفذ المعهد / المركز التوعية بأهمية المشاركة المجتمعية", procedures: ["يتم التوعية بأهمية المشاركة المجتمعية من خلال عمل لقاءات واجتماعات للعاملين (ضباط, أفراد , موظفين المدنيين).", "الطوابير الثقافية"], evidenceInternal: ["محضر الاجتماع", "دفتر اللقاءات والندوات", "دفتر الطابور الثقافي"], evidenceExternal: [] },
+                { id: "p5-1-1-2", number: "5-1-1-2", name: "ينفذ المعهد / المركز أولويات جهات الوزارة في المشاركة المجتمعية", procedures: ["تحديد اولويات الوزارة في المشاركة المجتمعية عن طريق تقديم خدمات للمجتمع ، علي سبيل المثال: (ذوي الهمم, يوم اليتيم ،الامومة والطفولة , طلبة الجامعات والمدارس, حملات التبرع بالدم , حملات التوعية ضد مخاطر المخدرات , مخاطر الحريق و الاجراءات الواجب اتبعاعها للسلامه و التعامل اثناء الحريق , المرور و قواعد السلامه , مشاركة ابناء الشهداء في المناسبات المختلفه , الغارمات)", "وضع خطة لتنفيذ المشاركة المجتمعية - خطة تنفيذية - خلال العام التدريبي"], evidenceInternal: ["خطة التنفيذ ."], evidenceExternal: [] }
+              ]
+            },
+            {
+              id: "i5-1-2", number: "5-1-2", name: "يتعاون المعهد / المركز والمجتمع المحلي في تفعيل المشاركة المجتمعية",
+              practices: [
+                { id: "p5-1-2-1", number: "5-1-2-1", name: "يتعاون المعهد / المركز والمجتمع المحلي في تفعيل المشاركة المجتمعية", procedures: ["تم تنفيذ خطة المشاركة المجتمعية – المحفوظة بالبند 5-1-1-2 - بالتعاون مع جهات المجتمع المختلفة."], evidenceInternal: ["حصر بالجهات التي تم التعاون معها.", "حصر باللقاءات والندوات والمقابلات المقدم من خلالها الخدمة المجتمعية.", "تقرير بما تم انجازة بخطة المشاركة المجتمعية."], evidenceExternal: [] },
+                { id: "p5-1-2-2", number: "5-1-2-2", name: "يوجد آليات لتقييم مردود المشاركة المجتمعية على العملية التعليمية", procedures: ["يتم تقييم مردود المشاركة المجتمعية بإستخدام أدوات جمع البيانات مثل : المقابلات واستطلاعات الرأي للأشخاص المقدم لها الخدمة المجتمعية وقيادات المجتمع المحلي."], evidenceInternal: ["وثيقة استطلاعات الرأي للأشخاص المقدم لها الخدمة المجتمعية وقيادات المجتمع المحلي."], evidenceExternal: [] }
+              ]
+            }
+          ]
+        },
+        {
+          id: "s5-2", number: "5-2", name: "الممارسات العادلة والاخلاقيات المهنية",
+          indicators: [
+            {
+              id: "i5-2-1", number: "5-2-1", name: "ضمان العدالة وعدم التمييز",
+              practices: [
+                { id: "p5-2-1-1", number: "5-2-1-1", name: "تطبق قواعد محددة لضمان العدالة وعدم التمييز بين المتدربين واحترام مبادئ حقوق الانسان", procedures: ["تحقيق العدالة بين المتدربين عن طريق: اجراء قياسات مستوي مبدئية يتم علي اساسها تصنيف المتدربين لمجموعات.", "وضع برنامج تدريبي ملائم لمستوي كل مجموعة لضمان تحقيق العدالة في التدريب.", "تحقيق عدم التمييز بين المتدربين عن طريق: وجود قواعد للقبول واضحة.", "وجود لائحة انضباطية معلنة لجميع المتدربين يتم تطبيقها علي جميع المتدربين.", "تحقيق احترام مبادئ حقوق الانسان عن طريق: وثيقة لحقوق الانسان، اعلانها لجميع المتدربين، نظام لتلقي المقترحات والشكاوي والتعامل."], evidenceInternal: ["قياسات مستوي مبدئية ( محفوظة بالبند رقم 11-1-1-1 )", "قواعد القبول ( محفوظة بالبند رقم 7-1-1-1 )", "نظام لتلقي المقترحات والشكاوي والتعامل معها ( محفوظة بالبند رقم 2-1-1-2 )", "كشف تصنيف مستويات المتدربين.", "برنامج تدريبي ملائم لكل مستوي .", "اللائحة الانضباطية.", "وثيقة لحقوق الانسان .", "كشف اعلان وثيقة حقوق الانسان."], evidenceExternal: [] },
+                { id: "p5-2-1-2", number: "5-2-1-2", name: "تم اتخاذ إجراءات / قرارات تصحيحية لمعالجة أي ممارسات غير عادلة", procedures: ["من خلال تطبيق اللائحة الانضباطية علي المتدربين في حالة التجاوز.", "من خلال عمل نموذج استطلاع رأي للمتدرب لتحديد المعوقات التي تواجه المتدرب والعمل على حلها بطريقة عادلة."], evidenceInternal: ["مستند توقيع جزاء علي أحد المتدربين.", "نموذج استطلاع رأى للمتدرب محفوظة بالبند رقم 11-1-1-5 ."], evidenceExternal: [] }
+              ]
+            },
+            {
+              id: "i5-2-2", number: "5-2-2", name: "ممارسات اخلاقيات المهنة",
+              practices: [
+                { id: "p5-2-2-1", number: "5-2-2-1", name: "يوجد بالمعهد / المركز دليل متاح لجميع الأطراف لممارسات أخلاقيات المهنة", procedures: ["يتم الاسترشاد بمدونة السلوك ."], evidenceInternal: [], evidenceExternal: ["مدونة السلوك."] },
+                { id: "p5-2-2-2", number: "5-2-2-2", name: "هناك إجراءات تتخذها للمعاهد / المركز في حالة عدم الالتزام بأخلاقيات المهنة", procedures: ["عمل محضر تحقيق وتوقيع الجزاء طبقاً للائحة في حالة عدم الالتزام بأخلاقيات المهنة ."], evidenceInternal: ["الجزاءات لأحد المتدربين ."], evidenceExternal: [] }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      id: "d6", name: "توكيد الجودة والمساءلة", icon: "✅", color: "#e0707d", colorLight: "#e0707d", description: "",
+      standards: [
+        {
+          id: "s6-1", number: "6-1", name: "النظام الداخلي لضمان الجودة",
+          indicators: [
+            {
+              id: "i6-1-1", number: "6-1-1", name: "يضع المعهد / المركز نظاماً داخلياً لضمان الجودة",
+              practices: [
+                { id: "p6-1-1-1", number: "6-1-1-1", name: "يشكل وحدة التدريب والجودة فريقاً فنياً لضمان جودة المعهد / المركز", procedures: ["تم تشكيل فريق فني لضمان جودة الإدارة."], evidenceInternal: ["قرارتشكيل فريق ضمان الجودة."], evidenceExternal: [] },
+                { id: "p6-1-1-2", number: "6-1-1-2", name: "يقوم فريق ضمان الجودة بعمليات المراجعة الداخلية لأداء المعهد / المركز", procedures: ["تم وضع خطة سنوية لتفيذ المراجعة الداخلية كل ثلاث شهور ( المحفوظة بالبند رقم 6-2-1-1 ).", "عمل مراجعة داخلية للتأكد من مدى المطابقة لمعايير الجودة (بالكتاب الدوري رقم 77 لسنه 2019)."], evidenceInternal: ["الخطة السنوية للمراجعة الداخلية.", "احد تقاريرالتقييم الذاتي."], evidenceExternal: ["حفظ تقارير التقييم الذاتي."] },
+                { id: "p6-1-1-3", number: "6-1-1-3", name: "تقوم وحدة التدريب و الجودة بتقييم جودة أداءها ومردوده على العملية التدريبية", procedures: ["اجراء تقييم لأداء المعهد عن طريق مؤشرات الأداء ، علي سبيل المثال : الاختبارات القبلية والبعدية.", "اسبيانات رضا المتدربين.", "تقيمات المدربين.", "استبيانات رضا المدربين.", "رضا الجهات المستفيدة.", "تحسين المناهج.", "معدلات أداء العاملين"], evidenceInternal: ["تقرير بتقييم أداء المعهد بعد إجراء ممارسات الجودة."], evidenceExternal: [] },
+                { id: "p6-1-1-4", number: "6-1-1-4", name: "يحرص المعهد / المركز على اقامة نظام داخلي متكامل لإدارة جودة التدريب والتعليم", procedures: ["تم تشكيل فريق لضمان الجودة بالإدارة.", "يقوم الفريق بإعداد خطة للتقييم الذاتي.", "يقوم الفريق بعمليات المراجعة الداخلية.", "عمل تقرير بناء علي نتائج التقرير الذاتي.", "نشر نتائج التقرير.", "يتم وضع خطة للتصحيح والتحسين المستمر.", "يتم تقييم مردود تطبيق معايير الجودة علي العملية التدريبية."], evidenceInternal: ["تشكيل فريق لضمان الجودة بالإدارة.محفوظة بالبند رقم (6-1-1-1)", "خطة للتقييم الذاتي محفوظة بالبند رقم (6-2-1-1)", "نموذج المراجعة الداخلية ( الكتاب 77 ). محفوظة بالبند رقم (6-1-1-2)", "تقرير بناء علي نتائج التقرير الذاتي محفوظة بالبند رقم (6-2-1-3)", "اعلان نتائج التقرير محفوظة بالبند رقم (6-2-1-4)", "خطة للتصحيح والتحسين المستمر محفوظة بالبند رقم (6-2-2-1)", "تقييم مردود تطبيق معايير الجودة علي العملية التدريبية. محفوظة بالبند رقم (6-1-1-3)"], evidenceExternal: [] }
+              ]
+            },
+            {
+              id: "i6-1-2", number: "6-1-2", name: "يضع المعهد / المركز نظاماً للمساءلة والمحاسبة يعتمد على نتائج التقييم",
+              practices: [
+                { id: "p6-1-2-1", number: "6-1-2-1", name: "يوفر المعهد / المركز قواعد للمساءلة والمحاسبة لكافة أشكال الأداء", procedures: ["تحديد مسئوليات جميع العاملين بالمعهد ."], evidenceInternal: ["مسئوليات جميع العاملين بالمعهد المحفوظة بالبند رقم (3-1-1-3)"], evidenceExternal: [] },
+                { id: "p6-1-2-2", number: "6-1-2-2", name: "يطبق المعهد / المركز بموضوعية قواعد المساءلة والمحاسبة على كافة المستويات", procedures: ["تقييم اداء العاملين بناء علي تحديد المسئوليات.", "محاسبة العاملين طبقاً لتقييم الأداء ."], evidenceInternal: ["تقييم اداء العاملين . المحفوظة بالبند رقم (3-2-1-2)", "توقيع الجزاء علي أحد العاملين ."], evidenceExternal: [] }
+              ]
+            }
+          ]
+        },
+        {
+          id: "s6-2", number: "6-2", name: "التقييم الذاتي والتحسين المستمر",
+          indicators: [
+            {
+              id: "i6-2-1", number: "6-2-1", name: "يقوم المعهد / المركز بعمليات التقييم الذاتي في ضوء نواتج التعلم المستهدفة",
+              practices: [
+                { id: "p6-2-1-1", number: "6-2-1-1", name: "يضع المعهد / المركز خطة لدراسة التقييم الذاتي في ضوء ضمان معايير الجودة والاعتماد", procedures: ["تم وضع خطة لدراسة التقييم الذاتي للعام التدريبي الحالي متضمنة مواعيد تنفيذ المراجعات الدورية علي الأقسام ."], evidenceInternal: ["مرفق خطة دراسة التقييم الذاتي ."], evidenceExternal: [] },
+                { id: "p6-2-1-2", number: "6-2-1-2", name: "ينفذ المعهد / المركز خطة دراسة التقييم الذاتي", procedures: ["بتاريخ   /     /       تم عمل مراجعه (تقييم ذاتي) للتأكد من مدي مطابقتها لمعايير الجودة."], evidenceInternal: ["أحد نماذج مراجعة التقييم الذاتي بتاريخ   /     /       . ( الكتاب 77 )"], evidenceExternal: ["نماذج مراجعة التقييم الذاتي."] },
+                { id: "p6-2-1-3", number: "6-2-1-3", name: "يوفر المعهد / المركز تقريراً عن دراسة التقييم الذاتي", procedures: ["بناء علي اجراء التقييم الذاتي تم عمل تقرير بحالات عدم المطابقة للممارسات المدرجة بالكتاب الدوري 77 (NCR – Non Conformance Report ) والنقاط التي تحتاج الي تحسين."], evidenceInternal: ["أحد تقارير التقييم الذاتي بتاريخ   /     /       ."], evidenceExternal: ["تقارير التقييم الذاتي."] },
+                { id: "p6-2-1-4", number: "6-2-1-4", name: "ينشر المعهد / المركز نتائج التقييم الذاتيّ على الأطراف المعنية", procedures: ["بتاريخ  /      /        قام السيد مدير المعهد/المركز بإعلان نتائج التقييم الذاتي علي العاملين بإلادارة كلا فيما يخصه.", "مناقشة ابرز الايجابيات والسلبيات مع وضع الحلول المناسبة لتلافي الملاحظات."], evidenceInternal: ["المحضر الذى تم من خلاله اعلان العاملين ومناقشتهم."], evidenceExternal: [] }
+              ]
+            },
+            {
+              id: "i6-2-2", number: "6-2-2", name: "يضع المعهد / المركز خطة للتحسين المستمر للأداء الشامل",
+              practices: [
+                { id: "p6-2-2-1", number: "6-2-2-1", name: "يضع المعهد / المركز خطة التحسين المستمر في ضوء نتائج التقييم الذاتي", procedures: ["عمل خطة تتضمن الاجراءات التصحيحية الواجب تنفيذها لتلافي حالات عدم المطابقة ، بناء علي تقرير دراسة التقييم الذاتي وتتضمن :", "تحديد المسئول عن تنفيذ الاجراء التصحيحي .", "تحديد المدة الزمنية للتنفيذ.", "تحديد التكلفة المالية ( في حالة التحسين للموارد المادية )."], evidenceInternal: ["خطة التحسين ."], evidenceExternal: [] },
+                { id: "p6-2-2-2", number: "6-2-2-2", name: "ينفذ المعهد / المركز خطة التحسين بفاعلية", procedures: ["تنفيذ خطة التحسين ومتابعتها من قيادة الجهه ."], evidenceInternal: ["بعض الاجراءات المتخذة للتحسين .", "علي سبيل المثال ( صورة للأعمال الإنشائية قبل وأثناء وبعد – صور من مراحل تحسين وتطوير التدريب .............)"], evidenceExternal: [] },
+                { id: "p6-2-2-3", number: "6-2-2-3", name: "يقيم ويتابع المعهد / المركز تنفيذ خطة التحسين مرحلياً", procedures: ["تقرير بتقييم ما تم تنفيذه من الاجراءات التصحيحية."], evidenceInternal: ["التقرير ."], evidenceExternal: [] }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      id: "d7", name: "المتدرب", icon: "🎓", color: "#5ecbd1", colorLight: "#5ecbd1", description: "",
+      standards: [
+        {
+          id: "s7-1", number: "7-1", name: "سياسات قبول المتدرب والإرشاد التدريبي",
+          indicators: [
+            {
+              id: "i7-1-1", number: "7-1-1", name: "سياسات قبول المتدرب",
+              practices: [
+                { id: "p7-1-1-1", number: "7-1-1-1", name: "توجد قواعد للقبول واضحة", procedures: ["تم مراجعة خطة التدريب السنوية بمعرفة رؤساء أقسام التدريب ، وتم العرض علي السيد المدير العام بالتوصيات والتغييرات .", "تم ادراج قواعد القبول لكل فرقة تدريبية .", "تم ارسال الخطة للإدارة العامة للتدريب – إدارة التخطيط ، وتم مناقشتها في الاجتماع السنوي ."], evidenceInternal: ["محضر إجتماع رؤساء أقسام التدريب.", "قواعد القبول لفرقة ........ المدرجة بالخطة ."], evidenceExternal: [] },
+                { id: "p7-1-1-2", number: "7-1-1-2", name: "يتم اعلان قواعد القبول للأطراف المعنية بعدة وسائل", procedures: ["تم الاعلان عن قواعد القبول عن طريق خطة التدريب السنوية ."], evidenceInternal: ["الخطة السنوية ."], evidenceExternal: [] },
+                { id: "p7-1-1-3", number: "7-1-1-3", name: "يتم المراجعة الدورية للتأكد من تطابق قواعد القبول على المرشحين لتلقى الفرقة", procedures: ["يتم ترشيح أسماء الضباط والأفراد من قبل المعهد بعد التأكد من تطابقهم لقواعد القبول.", "يتم مراجعة كشف أسماء المرشحين من شئون الضباط للتأكد من تطابق قواعد القبول عليهم ."], evidenceInternal: ["صورة ضوئية لترشيحات أحد الدورات التدريبية ."], evidenceExternal: [] },
+                { id: "p7-1-1-4", number: "7-1-1-4", name: "يتم تحديد اعداد المتدربين المقبولين بما يتناسب مع الموارد المتاحة للمعاهد والمراكز التدريبية ( ميادين تدريب / قاعات محاضرات / غيرها )", procedures: ["تم تحديد الطاقة الاستيعابية لاستقبال اعداد المتدربين بناء علي :", "• حصر الفصول الدراسية وتجهيزاتها مع بيان القوة الإستعابية لها.", "• تحديد أعداد المتدربين بالفرق التدريبية المختلفة وإدراجها بخطة التدريب السنوية.", "• توزيع الدورات التدريبية للفرق المختلفة علي العام التدريبي مع مراعاه توزيع الاعداد والكثافات."], evidenceInternal: ["الدليل للمارسة رقم ( 4-1-1-2 )"], evidenceExternal: [] }
+              ]
+            },
+            {
+              id: "i7-1-2", number: "7-1-2", name: "الإرشاد التدريبي",
+              practices: [
+                { id: "p7-1-2-1", number: "7-1-2-1", name: "يوجد دليل للمتدرب متاح لجميع المتدربين. إرشادات رقم 3", procedures: ["تم اعداد دليل المتدرب .( ارشادات رقم 3 )", "يتم توزيع نسخة ورقية أو الكترونية على جميع المتدربين ."], evidenceInternal: ["نسخة ورقية من دليل المتدرب."], evidenceExternal: [] },
+                { id: "p7-1-2-2", number: "7-1-2-2", name: "تنظيم برنامج تعريفي للمتدربين الجدد (بمحتويات دليل المتدرب)", procedures: ["يتم توزيع نسخة ورقية او الكترونية من دليل المتدرب علي جميع المتدربين.", "يتم تخصيص محاضرة تعريفية في بداية الفرقة .", "يتم شرح محتويات دليل المتدرب الي كل المتدربين والذي يحتوي علي برنامج تعريفي كامل بكل ما يحتاجه المتدرب."], evidenceInternal: ["برنامج الفرقة موضح به المحاضرة التعريفية .", "دليل المتدرب محفوظة بالبند 7-1-2-1."], evidenceExternal: [] }
+              ]
+            },
+            {
+              id: "i7-1-3", number: "7-1-3", name: "دعم المتدربين وتحفيز المتفوقين",
+              practices: [
+                { id: "p7-1-3-1", number: "7-1-3-1", name: "يوجد نظام معتمد لدعم المتدربين (الخدمات المادية/ العينية/ النفسية/ أخرى)", procedures: ["تم اتخاذ عدة أنظمة لدعم المتدربين ، علي سبيل المثال :", "• وجود كافيتريا مجهزة .", "• صاله ألعاب رياضية .", "• حمام سباحة .", "• مسجد .", "• مكان إنتظار للسيارات .", "• ماكينة صرف آلي (ATM)"], evidenceInternal: ["مجالات دعم المتدربين ."], evidenceExternal: [] },
+                { id: "p7-1-3-2", number: "7-1-3-2", name: "يتم تحفيز المتفوقين ، المبدعين (دعم مالي، جوائز وشهادات تقدير ، أخرى)", procedures: ["يتم تحفيز المتفوقين عن طريق شهادات تكريم تقدم للمتفوقين ."], evidenceInternal: ["أحد شهادات التكريم."], evidenceExternal: [] },
+                { id: "p7-1-3-3", number: "7-1-3-3", name: "يوجد برنامج لرفع مستوى المتدربين المتعثرين", procedures: ["اجراء قياسات مستوي مبدئية يتم علي اساسها تصنيف المتدربين لمجموعات.", "وضع برنامج تدريبي ملائم لمستوي المتدربين المتعثرين ."], evidenceInternal: ["قياسات مستوي مبدئية ( محفوظة بالبند رقم 11-1-1-1 )", "كشف تصنيف مستويات المتدربين.", "برنامج تدريبي ملائم للمتعثرين ."], evidenceExternal: [] }
+              ]
+            }
+          ]
+        },
+        {
+          id: "s7-2", number: "7-2", name: "نواتج التدريب المستهدفة",
+          indicators: [
+            {
+              id: "i7-2-1", number: "7-2-1", name: "يتمكن المتدرب من القيام بالممارسات المهنية السليمة",
+              practices: [
+                { id: "p7-2-1-1", number: "7-2-1-1", name: "يتم توعية المتدرب بتعليمات السلامة والصحة المهنية", procedures: ["تم اضافة ندوات ولقاءات للفرق التدريبية للتوعية بتعليمات السلامة الصحية ."], evidenceInternal: ["برنامج احد الفرق موضح به لقاء عن موضوع السلامة الصحية ."], evidenceExternal: [] },
+                { id: "p7-2-1-2", number: "7-2-1-2", name: "يتم توعية المتدرب بأهمية المحافظة على سلامة الأدوات والمعدات ومكان التدريب", procedures: ["يتم توعية المتدرب بأهمية المحافظة على سلامة الأدوات والمعدات ومكان التدرب وذلك من خلال عمل اجتماع للمتدربين من أول يوم في الفرقة التدريبية.", "يتم تسليم المتدربين المعدات عن طريق التوقيع علي سند استلام .", "تم عمل لائحة انضباطية بالقواعد التي يجب اتباعها المتدرب أثناء تلقيه للفرقة التدريبية."], evidenceInternal: ["احد سندات الاستلام.", "اللائحة الانضباطية."], evidenceExternal: [] }
+              ]
+            }
+          ]
+        },
+        {
+          id: "s7-3", number: "7-3", name: "التمكن من المهارات العامة ودعم المتدرب",
+          indicators: [
+            {
+              id: "i7-3-1", number: "7-3-1", name: "يتبع المتدرب العادات الصحية السليمة للمحافظة على صحته",
+              practices: [
+                { id: "p7-3-1-1", number: "7-3-1-1", name: "يتم توعية المتدرب بأهمية ممارسة العادات الصحية والغذائية السليمة", procedures: ["ما تم بالممارسة رقم (7-2-1-1 )."], evidenceInternal: ["المحفوظ بالممارسة رقم (7-2-1-1 )."], evidenceExternal: [] },
+                { id: "p7-3-1-2", number: "7-3-1-2", name: "يشارك المتدرب في أنشطة التوعية الصحية داخل المعهد / المركز", procedures: ["ما تم بالممارسة رقم (7-2-1-1 )."], evidenceInternal: ["المحفوظ بالممارسة رقم (7-2-1-1 )."], evidenceExternal: [] }
+              ]
+            },
+            {
+              id: "i7-3-2", number: "7-3-2", name: "يمتلك المتدرب المهارات الإجتماعية",
+              practices: [
+                { id: "p7-3-2-1", number: "7-3-2-1", name: "يتم تدريب المتدرب على المهارات الاجتماعية السليمة", procedures: ["يتم تدريب المتدرب على المهارات الاجتماعية من خلال تخصيص وقت أثناء المحاضرة لشرح كيفية اكتساب المهارات السليمة وعمل ورش عمل بين المتدربين لتطبيق ذلك."], evidenceInternal: ["ورش العمل التي تم عملها من جانب المتدرب بإشراف المدرب."], evidenceExternal: [] },
+                { id: "p7-3-2-2", number: "7-3-2-2", name: "يتم تدريب المتدرب على اتخاذ القرارات وتحمل المسئولية", procedures: ["ذلك من خلال الدورات التدريبية ووجود محاضرات تناقش السلامة النفسية من خلال البرنامج التدريبي ."], evidenceInternal: ["برنامج أحد الفرق موضح به محاضرة ضغوط العمل ."], evidenceExternal: [] }
+              ]
+            }
+          ]
+        },
+        {
+          id: "s7-4", number: "7-4", name: "إكتساب جوانب وجدانية إيجابية",
+          indicators: [
+            {
+              id: "i7-4-1", number: "7-4-1", name: "يتوافر لدي المتدرب اتجاهات إيجابية نحو العملية التدريبية والتعليمية",
+              practices: [
+                { id: "p7-4-1-1", number: "7-4-1-1", name: "يتوافر لدى المتدرب اتجاهات ايجابية نحو الدراسة بالمعهد / المركز", procedures: ["من خلال عمل استطلاعات رأي للمتدربين في بداية الفرق التدريبية للتأكد بأن المتدربين لديهم اتجاهات إيجابية نحو الدراسة."], evidenceInternal: ["احدى استطلاعات رأي المتدربين."], evidenceExternal: [] },
+                { id: "p7-4-1-2", number: "7-4-1-2", name: "يتم عمل تحليل شخصية (سمات) لكل متدرب", procedures: ["يتم عمل قياس مستوى للمتدربين واستطلاع رأي لمعرفة مدى اهتمامهم من عدمه.", "يتم تحليل قياس المستوى واستطلاع الرأي."], evidenceInternal: ["قياس المستوى.", "استطلاع الرأي.", "وثيقة التحليل ."], evidenceExternal: [] },
+                { id: "p7-4-1-3", number: "7-4-1-3", name: "يتم توعية المتدرب بأهمية احترام جميع المهن الموجودة في مجتمعه", procedures: ["تم اضافة ندوات للفرق التدريبية للتوعية في هذا الموضوع."], evidenceInternal: ["برنامج احد الفرق موضح به لقاء عن هذا الموضوع."], evidenceExternal: [] }
+              ]
+            },
+            {
+              id: "i7-4-2", number: "7-4-2", name: "يلتزم المتدرب بالقيم ، وبحقوقه وواجباته",
+              practices: [
+                { id: "p7-4-2-1", number: "7-4-2-1", name: "يتم توعية المتدرب بالقيم الاجتماعية ودوره في المجتمع", procedures: ["تم اضافة ندوات للفرق التدريبية للتوعية في هذا الموضوع."], evidenceInternal: ["برنامج احد الفرق موضح به لقاء عن هذا الموضوع."], evidenceExternal: [] },
+                { id: "p7-4-2-2", number: "7-4-2-2", name: "يتم توعية المتدرب بحقوقه وواجباته", procedures: ["من خلال مناقشة المتدرب في بداية الفرقة التدريبية بمضمون اللائحة الانضباطية من خلال المحاضرة التعريفية."], evidenceInternal: ["صورة من اللائحة الانضباطية."], evidenceExternal: [] }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      id: "d8", name: "المدرب", icon: "👨‍🏫", color: "#5a9fe0", colorLight: "#5a9fe0", description: "",
+      standards: [
+        {
+          id: "s8-1", number: "8-1", name: "يمتلك جميع المدربين المهارات (العلمية – الشخصية – السلوكية – التطبيقية) المطلوبة",
+          indicators: [
+            {
+              id: "i8-1-0", number: "8-1-0", name: "إجراءات عامة لتحقيق المعيار",
+              practices: [
+                {
+                  id: "p8-1-0-1", number: "8-1-0-1", name: "إجراءات عامة لتقييم وتطوير المدربين",
+                  procedures: [
+                    "ترشيح عدد من المدربين والمحاضرين للتدريب بالمعهد/ المركز.",
+                    "يقدم المرشحين السيرة الذاتية.",
+                    "فحص السيرة الذاتيه و التأكد من توافر جميع الاشتراطات الموجودة في المجال الثامن (تقييم المرشحين).",
+                    "اختيار المدربين الذين انطبق عليهم الشروط.",
+                    "تقييم المدربين بعد تنفيذ التدريب (بمعرفة ادارة التدريب + استطلاع رأي المتدرب في المدرب).",
+                    "وضع خطة لتطوير مهارات المدربين والمحاضرين.",
+                    "تنفيذ خطة التطوير (عقد دورات تدريبية للمدربين قبل بدء العام التدريبي).",
+                    "اتخاذ الإجراءات اللازمة للتعامل مع المدربين والمحاضرين الغير أكفاء."
+                  ],
+                  evidenceInternal: [
+                    "كشف المرشحين من المدربين والمحاضرين للتدريب بالمعهد/ المركز.",
+                    "السيرة الذاتية لأحد المرشحين.",
+                    "وثيقة تعارف للمحاضرين من خارج المعهد/ المركز.",
+                    "احد نماذج التقييم لمدرب موضح به الي اي مدي توافرت به الاشتراطات.",
+                    "كشف بأسماء المدربين المنطبق عليهم الشروط.",
+                    "احد تقييمات المدربين بعد تنفيذ التدريب (بمعرفة ادارة التدريب + استطلاع رأي المتدرب في المدرب).",
+                    "خطة تطوير مهارات المدربين والمحاضرين.",
+                    "تنفيذ خطة التطوير (عقد دورات تدريبية للمدربين قبل بدء العام التدريبي).",
+                    "محضر الاجتماع الذي نوقش به التقييمات و الاجراءات المتخذه مع المدربين والمحاضرين الغير اكفاء سواء بالاستبعاد او تطوير مهاراتهم.",
+                    "بيان تخصصات المدربين و مساعدي المدرب."
+                  ],
+                  evidenceExternal: [
+                    "السيرة الذاتية للمدربين/ المحاضرين.",
+                    "تقيمات المدربين والمحاضرين المرشحين.",
+                    "تقييمات المدربين بعد تنفيذ التدريب (بمعرفة ادارة التدريب + استطلاع رأي المتدرب في المدرب)."
+                  ]
+                }
+              ]
+            },
+            {
+              id: "i8-1-1", number: "8-1-1", name: "يمتلك جميع المدربين المهارات العلمية المطلوبة",
+              practices: [
+                {
+                  id: "p8-1-1-1", number: "8-1-1-1", name: "المحاضر يحمل درجة علمية مناسبة",
+                  procedures: ["يتم اختيار المحاضرين بعناية – سواء من داخل المعهد أو خارجه - مع الاهتمام بحصول المحاضر علي درجة علمية مناسبة."],
+                  evidenceInternal: ["وثيقة تعارف للمحاضرين من خارج المعهد."],
+                  evidenceExternal: ["دليل السيرة الذاتية للمدربين."]
+                },
+                {
+                  id: "p8-1-1-2", number: "8-1-1-2", name: "يوجد هناك تطابق بين التخصص وموضوع التدريب",
+                  procedures: [
+                    "وثيقة تعارف للمدربين للوقوف علي الفرق التدريبية الحاصل عليها ومجال عمله.",
+                    "تعيين المدرب تبعا لتخصصه داخل إدارة التدريب من خلال محضر إجتماع أقسام التدريب قبل الفرقة."
+                  ],
+                  evidenceInternal: [
+                    "بيان تخصصات المدربين و مساعدي المدرب",
+                    "صورة من محضر إجتماع إدارة التدريب لمناقشة فرقة التصدي للعدائيات في بداية العام"
+                  ],
+                  evidenceExternal: ["دليل السيرة الذاتية للمدربين . محفوظ بالند رقم 8-1-1-1 ."]
+                },
+                {
+                  id: "p8-1-1-3", number: "8-1-1-3", name: "لدي المدرب المعرفة العلمية حول الموضوع التدريبي",
+                  procedures: [
+                    "عقد دورات تدريبية للمدربين قبل بدء العام التدريبي.",
+                    "شرح جميع الموضوعات التدريبية من خلال نقاشات أثناء الفترة التحضيرية للعام."
+                  ],
+                  evidenceInternal: ["صورة من برنامج الدورة التدريبية للعام التدريبي ......../ ........"],
+                  evidenceExternal: []
+                },
+                {
+                  id: "p8-1-1-4", number: "8-1-1-4", name: "لدي المدرب الخبرة العلمية الكافية في موضوع التدريب",
+                  procedures: [
+                    "تبدء عملية إختيار المدربين من مرحلة الترشيح للعمل بالتدريب من خلال تقديم سيرة ذاتية وسابقة أعمال للمدرب.",
+                    "من سبق لهم العمل في المجال الخاص بموضوع التدريب.",
+                    "يكلف بالمهام طبقا لمواصفات المنهج التدريبي وخصائصه العلمية."
+                  ],
+                  evidenceInternal: [],
+                  evidenceExternal: ["دليل السيرة الذاتية للمدربين . محفوظ بالند رقم 8-1-1-1 ."]
+                }
+              ]
+            },
+            {
+              id: "i8-1-2", number: "8-1-2", name: "يتمتع جميع المدربين بالمهارات (الشخصية – السلوكية – التطبيقية)",
+              practices: [
+                {
+                  id: "p8-1-2-1", number: "8-1-2-1", name: "تطوير وتقييم مهارات المدربين",
+                  procedures: [
+                    "بمجرد التعيين بالمعهد يتلقي المدرب دورة تدريبية أحد عناصرها الأساسية عملية التواصل الفعال مع تدعيم مهاراته الشخصية والإجتماعية.",
+                    "أثناء الدورة يتم دراسة كتيب (دليل عمل المدرب).",
+                    "إضافة إلي الدورات التدريبية والنقاشات وورش العمل لمناقشة المواد العلمية وتطويرها لدي المعهد منظومة تقييم للمدربين تعتمد على طرفي التقييم الأساسيين (إدارة التدريب – المتدربين) من خلال نموذج تقييم المتدربين للمدرب",
+                    "إضافة إلي تقييم إدارة التدريب النصف سنوي بناء على أعماله مجتمعة وأداءه للتكليفات في وقتها المحدد."
+                  ],
+                  evidenceInternal: [
+                    "صورة من كتيب دليل المدرب",
+                    "صورة من البرنامج التدريبي لإعداد المدربين والدورة التحضيرية للعام",
+                    "صورة لوثيقة تقييم المتدربين للمدربين.",
+                    "صورة من إجراء تقييم المدربين."
+                  ],
+                  evidenceExternal: []
+                }
+              ]
+            },
+            {
+              id: "i8-1-3", number: "8-1-3", name: "يتمتع جميع المدربين بالمهارات (الشخصية – السلوكية – التطبيقية)",
+              practices: [
+                {
+                  id: "p8-1-3-1", number: "8-1-3-1", name: "تطوير وتقييم مهارات المدربين",
+                  procedures: [
+                    "بمجرد التعيين بالمعهد يتلقي المدرب دورة تدريبية أحد عناصرها الأساسية عملية التواصل الفعال مع تدعيم مهاراته الشخصية والإجتماعية.",
+                    "أثناء الدورة يتم دراسة كتيب (دليل عمل المدرب).",
+                    "إضافة إلي الدورات التدريبية والنقاشات وورش العمل لمناقشة المواد العلمية وتطويرها لدي المعهد منظومة تقييم للمدربين تعتمد على طرفي التقييم الأساسيين (إدارة التدريب – المتدربين) من خلال نموذج تقييم المتدربين للمدرب",
+                    "إضافة إلي تقييم إدارة التدريب النصف سنوي بناء على أعماله مجتمعة وأداءه للتكليفات في وقتها المحدد."
+                  ],
+                  evidenceInternal: [
+                    "صورة من كتيب دليل المدرب",
+                    "صورة من البرنامج التدريبي لإعداد المدربين والدورة التحضيرية للعام",
+                    "صورة لوثيقة تقييم المتدربين للمدربين.",
+                    "صورة من إجراء تقييم المدربين."
+                  ],
+                  evidenceExternal: []
+                }
+              ]
+            },
+            {
+              id: "i8-1-4", number: "8-1-4", name: "يتمتع جميع المدربين بالمهارات (الشخصية – السلوكية – التطبيقية)",
+              practices: [
+                {
+                  id: "p8-1-4-1", number: "8-1-4-1", name: "تطوير وتقييم مهارات المدربين",
+                  procedures: [
+                    "بمجرد التعيين بالمعهد يتلقي المدرب دورة تدريبية أحد عناصرها الأساسية عملية التواصل الفعال مع تدعيم مهاراته الشخصية والإجتماعية.",
+                    "أثناء الدورة يتم دراسة كتيب (دليل عمل المدرب).",
+                    "إضافة إلي الدورات التدريبية والنقاشات وورش العمل لمناقشة المواد العلمية وتطويرها لدي المعهد منظومة تقييم للمدربين تعتمد على طرفي التقييم الأساسيين (إدارة التدريب – المتدربين) من خلال نموذج تقييم المتدربين للمدرب",
+                    "إضافة إلي تقييم إدارة التدريب النصف سنوي بناء على أعماله مجتمعة وأداءه للتكليفات في وقتها المحدد."
+                  ],
+                  evidenceInternal: [
+                    "صورة من كتيب دليل المدرب",
+                    "صورة من البرنامج التدريبي لإعداد المدربين والدورة التحضيرية للعام",
+                    "صورة لوثيقة تقييم المتدربين للمدربين.",
+                    "صورة من إجراء تقييم المدربين."
+                  ],
+                  evidenceExternal: []
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      id: "d9", name: "المنهج الدراسي والبرنامج التدريبي", icon: "📚", color: "#a3c96b", colorLight: "#a3c96b", description: "",
+      standards: [
+        {
+          id: "s9-1", number: "9-1", name: "تقييم المنهج",
+          indicators: [
+            {
+              id: "i9-1-1", number: "9-1-1", name: "تحديد ما الذي تريده الجهة المستفيدة من التدريب",
+              practices: [
+                {
+                  id: "p9-1-1-1", number: "9-1-1-1", name: "تحديد نوع المعارف وحجمها وتخصصها",
+                  procedures: ["يقوم المعهد بتحديد نوع المعارف وحجمها وتخصصها عن طريق وثيقة تحليل الاحتياجات تنسيقا مع الجهة المستفيدة من التدريب.", "إستطلاع رأي المتدرب خلال استقبال الفرقة.", "يتم التحليل بواسطة إدارة التدريب والإضافة والحذف إن تطلب الأمر على المنهج في إطار الهدف من الفرقة عن طريق وثيقة تحليل مجمعة موضح بها نوع المعارف وحجمها وتخصصها."],
+                  evidenceInternal: ["وثيقة تحليل الاحتياجات.", "إستطلاع رأي المتدرب"],
+                  evidenceExternal: []
+                },
+                {
+                  id: "p9-1-1-2", number: "9-1-1-2", name: "تحديد نوع المهارات ومستواها ومعدل أدائها",
+                  procedures: ["تقوم إدارة التدريب بتحديد نوع المهارات عن طريق وثيقة تملأ بمعرفة المتدرب تعبر عن احتياجاته.", "قياس مستوي مهاري يعقبه تحليل الاحتياج المهاري وفقا لمعيار الحد الأدنى لمهارات الفرقة."],
+                  evidenceInternal: ["صورة من وثيقة تحليل الاحتياجات التدريبية لفرقة .......", "نموذج تحليل الاحتياج المهاري لفرقة ............... ."],
+                  evidenceExternal: []
+                },
+                {
+                  id: "p9-1-1-3", number: "9-1-1-3", name: "تحديد الاتجاهات والقيم والميول التي تحدث التعديل أو التطوير في السلوك أو التصرفات",
+                  procedures: ["يقوم المعهد بتحديد الاتجاهات والقيم والميول للمتدربين عن طريق وثيقة تحليلية.", "يقوم المتدربين بمليء الوثيقة التحليلية أثناء استقبال الفرق."],
+                  evidenceInternal: ["وثيقة تحليل الاحتياجات التدريبية لفرقة ............", "وثيقة تحليل السمات الشخصية لفرقة ............."],
+                  evidenceExternal: []
+                }
+              ]
+            },
+            {
+              id: "i9-1-2", number: "9-1-2", name: "محتوي المنهج",
+              practices: [
+                {
+                  id: "p9-1-2-1", number: "9-1-2-1", name: "تحديد العناصر الأساسية التي يجب أن يشملها المنهج",
+                  procedures: ["تحدد العناصر الأساسية للمنهج من خلال وثيقة تحليل احتياجات الجهة."],
+                  evidenceInternal: ["وثيقة تحليل احتياجات لفرقة ..............."],
+                  evidenceExternal: []
+                },
+                {
+                  id: "p9-1-2-2", number: "9-1-2-2", name: "تحديد جوانب الضعف في أداء العمل لتركيز موضوعات المنهج على هذه الجوانب",
+                  procedures: ["تحليل جوانب الضعف في الأداء تنسيقاً والجهات المعنية (علي سبيل المثال التنسيق مع الأمن العام للوقوف علي جوانب الضعف في أداء الضباط العاملين بنقاط التفتيش )."],
+                  evidenceInternal: ["وثيقة تحليل جوانب الضعف ."],
+                  evidenceExternal: []
+                },
+                {
+                  id: "p9-1-2-3", number: "9-1-2-3", name: "تحديد محتويات كل موضوع بالتفصيل",
+                  procedures: ["عقد اجتماع للنقاش حول تفاصيل المنهج والبرنامج.", "صياغة منهج الفرقة."],
+                  evidenceInternal: ["محضر اجتماع فرقة .................."],
+                  evidenceExternal: ["منهج فرقة ............."]
+                }
+              ]
+            },
+            {
+              id: "i9-1-3", number: "9-1-3", name: "تقييم المنهج بعد التنفيذ",
+              practices: [
+                {
+                  id: "p9-1-3-1", number: "9-1-3-1", name: "هناك إجراءات موثقة للمراجعة الدورية للمنهج",
+                  procedures: ["يتم عقد اجتماعات للمراجعة الدورية للمنهج بواقع اجتماعين.", "الاجتماع الأول ينعقد خلال الفرقة ( بعد مرور نصف المدة تقريبا ) لمناقشة ودراسة سير العملية التدريبية.", "الاجتماع الثاني (الأخير) ينعقد بعد نهاية الفرقة التدريبية لمناقشه الإيجابيات والسلبيات التي ظهرت اثناء العملية التدريبية ويتم تحليلها كما يتم الخروج بتوصيات – ان وجدت - لتعديل المنهج."],
+                  evidenceInternal: ["محضر الاجتماع الاول .", "محضر الاجتماع الثاني موضح به التوصيات ."],
+                  evidenceExternal: []
+                },
+                {
+                  id: "p9-1-3-2", number: "9-1-3-2", name: "هناك مستويات مختلفة تتم من خلالها إجراءات المراجعة",
+                  procedures: ["بعد الانتهاء من عقد اجتماعات المراجعة الدورية للمنهج والتي تتكون من رؤساء أقسام ادارة التدريب، يتم عرضها علي السيد اللواء / مدير المعهد."],
+                  evidenceInternal: ["محضر الاجتماع ."],
+                  evidenceExternal: []
+                },
+                {
+                  id: "p9-1-3-3", number: "9-1-3-3", name: "هل المنهج حقق المستهدف منه",
+                  procedures: ["تقارير تحليل العائد التدريبي للوقوف على المنهج وتحقيق أهدافه."],
+                  evidenceInternal: ["تقرير تحليل العائد التدريبي لفرقة ................."],
+                  evidenceExternal: []
+                },
+                {
+                  id: "p9-1-3-4", number: "9-1-3-4", name: "يتم الاعتماد على استطلاعات الرأي في إجراء التطوير والتحديث للمنهج",
+                  procedures: ["في حالة وجود أراء في استطلاعات الرأي يتم دراسة معدل تكرارها.", "إذا كان معدل التكرار مناسب يتم الأخذ به."],
+                  evidenceInternal: ["نموذج من استطلاع الرأي لفرقة ........................"],
+                  evidenceExternal: []
+                }
+              ]
+            }
+          ]
+        },
+        {
+          id: "s9-2", number: "9-2", name: "تقييم البرنامج",
+          indicators: [
+            {
+              id: "i9-2-1", number: "9-2-1", name: "تصميم البرنامج التدريبي",
+              practices: [
+                {
+                  id: "p9-2-1-1", number: "9-2-1-1", name: "هناك إجراءات موثقة للمراجعة الدورية للبرنامج",
+                  procedures: ["يجتمع رؤساء أقسام التدريب مع مجموعة العمل الخاصة بالفرقة والتي يتم تحديدها طبقا لمواصفات الفرقة العلمية والمهارية لمراجعة أثر البرنامج على المتدربين."],
+                  evidenceInternal: ["محضر اجتماع فرقة ................. لمراجعة البرنامج ."],
+                  evidenceExternal: []
+                },
+                {
+                  id: "p9-2-1-2", number: "9-2-1-2", name: "هناك مستويات مختلفة تتم من خلالها إجراءات المراجعة",
+                  procedures: ["الاجتماع يشمل( رؤساء أقسام التدريب - مشرف الفرقة – مدرب كل مادة )", "يتم رفع تقرير للسيد اللواء المدير العام."],
+                  evidenceInternal: ["تقرير للسيد المدير العام."],
+                  evidenceExternal: []
+                },
+                {
+                  id: "p9-2-1-3", number: "9-2-1-3", name: "يتم ربط كل موضوع تدريبي من موضوعات المنهج بمدرب متخصص",
+                  procedures: ["الاجتماع يوزع المسؤوليات لكل مادة."],
+                  evidenceInternal: ["محضر اجتماع فرقة ................................"],
+                  evidenceExternal: []
+                },
+                {
+                  id: "p9-2-1-4", number: "9-2-1-4", name: "يتم ربط كل موضوع تدريبي من موضوعات المنهج بتاريخ محدد",
+                  procedures: ["توزيع المواد والساعات بأنواعها وفترات التدريب ( الفردي – الجماعي. )"],
+                  evidenceInternal: ["محضر اجتماع فرقة ................."],
+                  evidenceExternal: []
+                },
+                {
+                  id: "p9-2-1-5", number: "9-2-1-5", name: "يتم تحديد ساعات تدريبية مناسبة لكل موضوع من موضوعات المنهج",
+                  procedures: ["المناقشات تشمل الهدف النهائي من كل مادة ( المعرفي والمهاري).", "يتم تصميم البرنامج بالساعات وفقا للمنهج المعد مسبقا.", "الدليل الورقي : محضر اجتماع فرقة ........................................ ، نموذج برنامج الفرقة."],
+                  evidenceInternal: ["محضر اجتماع فرقة ........................................", "نموذج برنامج الفرقة."],
+                  evidenceExternal: []
+                },
+                {
+                  id: "p9-2-1-6", number: "9-2-1-6", name: "يتم ترتيب الموضوعات التدريبية بتسلسل منطقي",
+                  procedures: ["عقب الانتهاء من التدريب الفردي يحدد في الاجتماع ميعاد التدريب الجماعي.", "مراعاة التسلسل المنطقي بهذه الطريقة."],
+                  evidenceInternal: ["خطة درس مهارات التدريب الجماعي فرقة ........................."],
+                  evidenceExternal: []
+                },
+                {
+                  id: "p9-2-1-7", number: "9-2-1-7", name: "يتم التدرج في المعلومات فيتم البدء بالأسهل ثم الأصعب والمعلوم ثم المجهول",
+                  procedures: ["يتم التدرج من الأسهل للأصعب.", "ومن المهارات الضيقة للحركات الواسعة."],
+                  evidenceInternal: ["خطة درس فرقة ........................."],
+                  evidenceExternal: []
+                },
+                {
+                  id: "p9-2-1-8", number: "9-2-1-8", name: "يتم التدرج في الأحمال التدريبية للمتدربين",
+                  procedures: ["يتم التوزيع الأسبوعي طبقا للأحمال التدريبية لتجنب الإصابات عن طريق قسم التدريب التخصصي.", "عند ملاحظة أي أحمال زائدة يتم تغيير خطة واسلوب التدريب."],
+                  evidenceInternal: ["برنامج فرقة .............................."],
+                  evidenceExternal: []
+                },
+                {
+                  id: "p9-2-1-9", number: "9-2-1-9", name: "يتم التنوع في المحاضرات على مدار اليوم التدريبي الواحد",
+                  procedures: ["يتم التنوع في المحاضرات على مدار اليوم الواحد من خلال التدرج الغير نمطي مستخدما الأدوات التالية-: التدريب البدني، التدريب النظري، المهارات القتالية، مهارات الرماية.", "الدليل الورقي: برنامج فرقة ................."],
+                  evidenceInternal: ["برنامج فرقة ................."],
+                  evidenceExternal: []
+                }
+              ]
+            },
+            {
+              id: "i9-2-2", number: "9-2-2", name: "تقييم البرنامج بعد التنفيذ",
+              practices: [
+                {
+                  id: "p9-2-2-1", number: "9-2-2-1", name: "هل اختيار المدرب كان مناسبا للموضع الذى كلف بتدريبه",
+                  procedures: ["يجتمع رؤساء أقسام التدريب مع مجموعة العمل الخاصة بالفرقة بعد الانتهاء من الفرقة.", "رصد جميع السلبيات والإيجابيات من خلال استطلاع الرأي النهائي وتقييم المدربين من المتدربين.", "الاستعانة بوثائق متابعة أعمال المتدرب (استطلاع الرأي – النتائج وتطورها– مساعدات التدريب والأسلحة وعدد ساعات التدريب المنفذة من خلال قاعدة البيانات )"],
+                  evidenceInternal: ["محاضر الاجتماع النهائي.", "تحليل استطلاعات الرأي."],
+                  evidenceExternal: []
+                },
+                {
+                  id: "p9-2-2-2", number: "9-2-2-2", name: "هل الساعات التي تم تحديدها لكل موضوع كانت كافية",
+                  procedures: ["يجتمع رؤساء أقسام التدريب مع مجموعة العمل الخاصة بالفرقة بعد الانتهاء من الفرقة.", "رصد وتحليل وثائق التعارف فيما يخص المناخ والبرنامج التدريبي."],
+                  evidenceInternal: ["محاضر الاجتماع النهائي.", "تقييم المناخ التدريبي", "تحليل معدلات الأداء بوسائل القياس المختلفة."],
+                  evidenceExternal: []
+                },
+                {
+                  id: "p9-2-2-3", number: "9-2-2-3", name: "هل ظهرت مشاكل على المتدربين نتيجة الأحمال التدريبية التي تم وضعها",
+                  procedures: ["بنهاية فترات التدريب يتم حصر حالات الإصابات تنسيقا مع قسم الدارسين وقاعدة البيانات."],
+                  evidenceInternal: ["حصر حالات الاصابة ."],
+                  evidenceExternal: []
+                },
+                {
+                  id: "p9-2-2-4", number: "9-2-2-4", name: "هل ترتيب المحاضرات على مدار اليوم بالوضع الحالي ظهرت به مشكلات ويحتاج إعادة ترتيب",
+                  procedures: ["يجتمع رؤساء أقسام التدريب مع مجموعة العمل الخاصة بالفرقة بعد الانتهاء من الفرقة.", "رصد تقييمات خاصة بالبرنامج التدريبي خلال اليوم."],
+                  evidenceInternal: ["محضر الاجتماع النهائي", "نموذج تحليل البيانات."],
+                  evidenceExternal: []
+                }
+              ]
+            }
+          ]
+        },
+        {
+          id: "s9-3", number: "9-3", name: "تقييم المادة العلمية",
+          indicators: [
+            {
+              id: "i9-3-1", number: "9-3-1", name: "تقييم الغلاف الخاص بالمادة العلمية (من 9-3-1-1 حتي 9-3-1-8)",
+              practices: [
+                {
+                  id: "p9-3-1-1", number: "9-3-1-1", name: "مناقشة وتقييم بنود المادة والغلاف",
+                  procedures: ["أجتمع مدربي المادة العلمية خلال الدورة التحضيرية السنوية لمناقشة بنود المادة.", "الوقوف على بعض المتغيرات وبنود التطوير والغلاف والعنوان وشعار المادة."],
+                  evidenceInternal: ["صورة من محضر اجتماع."],
+                  evidenceExternal: ["نموذج حقيبة تدريبية لفرقة ......................."]
+                }
+              ]
+            },
+            {
+              id: "i9-3-2", number: "9-3-2", name: "تقييم مقدمة المادة العلمية (من 9-3-2-1 حتي 9-3-2-5)",
+              practices: [
+                {
+                  id: "p9-3-2-1", number: "9-3-2-1", name: "تقييم المقدمة والمصطلحات والفوائد",
+                  procedures: ["اجتمع إدارة التدريب ورؤساء الأقسام خلال الدورة التحضيرية السنوية لتقييم الأجزاء المكونة للمادة.", "الوقوف على تقييم المقدمة والمصطلحات والفوائد العائدة من الحقيبة."],
+                  evidenceInternal: ["صورة من محضر اجتماع."],
+                  evidenceExternal: ["نموذج حقيبة تدريبية لفرقة ......................."]
+                }
+              ]
+            },
+            {
+              id: "i9-3-3", number: "9-3-3", name: "تقييم الأهداف المرتبطة بالمادة العلمية (من 9-3-3-1 حتي 9-3-3-4)",
+              practices: [
+                {
+                  id: "p9-3-3-1", number: "9-3-3-1", name: "تقييم أهداف الحقيبة التدريبية",
+                  procedures: ["اجتمع إدارة التدريب ورؤساء الأقسام خلال الدورة التحضيرية السنوية لتقييم الأجزاء المكونة للمادة.", "الوقوف على أهداف الحقيبة التدريبية."],
+                  evidenceInternal: ["صورة من محضر اجتماع."],
+                  evidenceExternal: ["نموذج حقيبة تدريبية لفرقة ......................."]
+                }
+              ]
+            },
+            {
+              id: "i9-3-4", number: "9-3-4", name: "تقييم الأجزاء المكونة للمادة العلمية (من 9-3-4-1 حتي 9-3-4-5)",
+              practices: [
+                {
+                  id: "p9-3-4-1", number: "9-3-4-1", name: "تقييم الأجزاء واستخدام أساليب تدريب مختلفة",
+                  procedures: ["اجتمع إدارة التدريب ورؤساء الأقسام خلال الدورة التحضيرية السنوية لتقييم الأجزاء المكونة للمادة.", "إستخدام أساليب تدريب مختلفة في الإستراتيجيات لتتوافق مع أنماط المتدربين المختلفة."],
+                  evidenceInternal: ["صورة من محضر اجتماع."],
+                  evidenceExternal: ["نموذج حقيبة تدريبية لفرقة ......................."]
+                }
+              ]
+            },
+            {
+              id: "i9-3-5", number: "9-3-5", name: "أسلوب عرض المحتوي الخاص بالمادة العلمية (من 9-3-5-1 حتي 9-3-5-7)",
+              practices: [
+                {
+                  id: "p9-3-5-1", number: "9-3-5-1", name: "تصميم تطبيقات المحتوي من تمارين وتدريبات",
+                  procedures: ["اجتمع إدارة التدريب ورؤساء الأقسام خلال الدورة التحضيرية السنوية لتقييم الأجزاء المكونة للمادة.", "تصميم تطبيقات المحتوي من تمارين وتدريبات."],
+                  evidenceInternal: ["صورة من محضر اجتماع."],
+                  evidenceExternal: ["نموذج حقيبة تدريبية لفرقة ......................."]
+                }
+              ]
+            },
+            {
+              id: "i9-3-6", number: "9-3-6", name: "تقييم مدي توافر المرفقات بالمادة العلمية (من 9-3-6-1 حتي 9-3-6-4)",
+              practices: [
+                {
+                  id: "p9-3-6-1", number: "9-3-6-1", name: "مراجعة الخلاصة والمراجع والمرفقات",
+                  procedures: ["اجتمع إدارة التدريب ورؤساء الأقسام خلال الدورة التحضيرية السنوية لتقييم الأجزاء المكونة للمادة.", "يتم وضع خلاصة للمادة بنهاية المادة.", "لتدقيق في المراجع وحداثتها.", "وضع المرفقات للاطلاع إن تطلب الأمر."],
+                  evidenceInternal: ["صورة من محضر اجتماع."],
+                  evidenceExternal: ["نموذج حقيبة تدريبية لفرقة ......................."]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      id: "d10", name: "المناخ التربوي والتدريبي", icon: "🌱", color: "#e07ab0", colorLight: "#e07ab0", description: "",
+      standards: [
+        {
+          id: "s10-1", number: "10-1", name: "توافر بيئة داعمة للتدريب والتعليم",
+          indicators: [
+            {
+              id: "i10-1-1", number: "10-1-1", name: "يتوافر بالإدارة مناخاً داعماً لعمليتي التدريب والتعليم",
+              practices: [
+                {
+                  id: "p10-1-1-1", number: "10-1-1-1", name: "يتوافر بالمعهد / المركز ثقافة صحية لدى المتدربين والمدربين والعاملين",
+                  procedures: [
+                    "توقيع الكشف الطبي علي المتدربين قبل بدء الفرقة التدريبية.",
+                    "توعية العاملين المدنيين والافراد من خلال التدريب الثقافي .",
+                    "توعية المتدربين عن طريق ندوات واجتماعات تناقش الثقافية الصحية ومحاضرات عن الاسعافات الأولية.",
+                    "التنظيف مرتين يوميا لجميع أرجاء المعهد.",
+                    "متابعة الشهادات الصحية للعاملين بالمطابخ والمقاصف.",
+                    "وضع لوحات ارشادية ."
+                  ],
+                  evidenceInternal: [
+                    "نموذج من أحد إستمارات توقيع الكشف الطبي.",
+                    "دفتر الطوابير الثقافية .",
+                    "أحد برامج الفرق موضح به ندوة عن الثقافة الصحية .",
+                    "كشف متابعة النظافة اليومي.",
+                    "حصر بأسماء العاملين بالمطابخ والمقاصف وتواريخ إنتهاء الشهادات الصحية.",
+                    "لوحة إرشادية ."
+                  ],
+                  evidenceExternal: []
+                },
+                {
+                  id: "p10-1-1-2", number: "10-1-1-2", name: "يقدم المعهد / المركز توعية للمتدربين عن احتياطات الامن والسلامة عند استخدام الأجهزة والمعدات اثناء التدريب بالميدان",
+                  procedures: [
+                    "تلقين المتدربين بإحتياطات الأمن والسلامة عند الاستقبال ويتم التوقيع علي وثيقة احتياطات الأمن والسلامة بالعلم .",
+                    "يتم توعية وتدريب المتدربين على كيفية استخدام أجهزة ووسائل التأمين والسلامة أثناء المحاضرات التدريبية .",
+                    "إلقاء محاضرات إحتياطات أمن السلاح .",
+                    "لوحات إرشادية لإحتياطات أمن السلاح."
+                  ],
+                  evidenceInternal: [
+                    "كشف اعلان المتدربين بإحتياطات الأمن والسلامة.",
+                    "أحد برامج الفرق موضح به هذا الشأن .",
+                    "أحد برامج الفرق موضح محاضرات إحتياطات أمن السلاح .",
+                    "لوحات إرشادية لإحتياطات أمن السلاح."
+                  ],
+                  evidenceExternal: []
+                }
+              ]
+            }
+          ]
+        },
+        {
+          id: "s10-2", number: "10-2", name: "توافر بيئة داعمة للعلاقات التدريبية",
+          indicators: [
+            {
+              id: "i10-2-1", number: "10-2-1", name: "يتوافر بالإدارة مناخاً داعماً لثقافة المواطنة، والانتماء، واحترام القانون",
+              practices: [
+                {
+                  id: "p10-2-1-1", number: "10-2-1-1", name: "تسود المعهد ثقافة المواطنة والانتماء",
+                  procedures: [
+                    "برنامج لتعزيز الانتماء :",
+                    "• نشرة داخلية تسلط الضوء علي انجازات الموظفين.",
+                    "• لوحة شرف للمتميزين.",
+                    "• رسائل شكر شخصية من الإدارة العليا."
+                  ],
+                  evidenceInternal: [
+                    "النشرة الداخلية.",
+                    "لوحة الشرف.",
+                    "احد رسائل الشكر."
+                  ],
+                  evidenceExternal: []
+                },
+                {
+                  id: "p10-2-1-2", number: "10-2-1-2", name: "تتسم بيئة المعهد / المركز بالانضباط والالتزام بالقواعد والقوانين المنظمة للعمل",
+                  procedures: [
+                    "صدور أوامر إدارية بشان تنظيم قواعد وقوانين العمل بالإدارة والحث الدائم على الالتزام والانضباط .",
+                    "تطبيق لائحة المعهد في حالة مخالفة اي دارس للائحة الانضباط."
+                  ],
+                  evidenceInternal: [
+                    "دفتر الأوامر الإدارية .",
+                    "توقيع الجزاء علي أحد الدارسين المخالفين"
+                  ],
+                  evidenceExternal: []
+                }
+              ]
+            },
+            {
+              id: "i10-2-2", number: "10-2-2", name: "يسود بالإدارة مناخاً داعماً للقيم",
+              practices: [
+                {
+                  id: "p10-2-2-1", number: "10-2-2-1", name: "تتسم بيئة المعهد / المركز بالالتزام بالقيم",
+                  procedures: [
+                    "تطبق اللائحة الانضباطية في حالة مخالفة قواعد وقيم المعهد/المركز ."
+                  ],
+                  evidenceInternal: [
+                    "توقيع الجزاء علي احد الدارسين لإرتكابة مخالفة سلوكية ."
+                  ],
+                  evidenceExternal: []
+                },
+                {
+                  id: "p10-2-2-2", number: "10-2-2-2", name: "يسود المعهد/ المركز ثقافة داعمة للقيم",
+                  procedures: [
+                    "يتم نشر القيم والتأكيد عليها من خلال:",
+                    "• محاضرات للفرق التدريبية تتعلق بالقيم والأخطاء المسلكية لرجال الشرطة.",
+                    "• الطابور الثقافي ( الأفراد والمجندين والعاملين المدنيين ).",
+                    "• الندوات الثقافية ( رجال الدين – اعضاء منظمة حقوق الانسان - ......)",
+                    "• اجتماعات القائد.",
+                    "• اجتماعات رؤساء الاقسام."
+                  ],
+                  evidenceInternal: [
+                    "أحد برامج الفرق التدريبية موضح به محاضرة الأخطاء المسلكية لرجال الشرطة .",
+                    "دفتر الطابور الثقافي.",
+                    "أحد الندوات الثقافية .",
+                    "أحد اجتماعات القائد.",
+                    "أحد اجتماعات رؤساء الاقسام."
+                  ],
+                  evidenceExternal: [
+                    "دفتر الطابور الثقافي.",
+                    "أحد الندوات الثقافية ."
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          id: "s10-3", number: "10-3", name: "التأهيل لتنفيذ نتائج فاعلية التدريب والتعليم في المجتمع الأمني",
+          indicators: [
+            {
+              id: "i10-3-1", number: "10-3-1", name: "الممارسات التطبيقية لبرنامج التدريب",
+              practices: [
+                {
+                  id: "p10-3-1-1", number: "10-3-1-1", name: "التنفيذ العملي للبرنامج التدريبي",
+                  procedures: [
+                    "عقد الفرق التدريبية المدرجة في الخطة التدريبية والالتزام بمواعيدها المعلنة عن طريق:",
+                    "• التخطيط المسبق للساعات التدريبية من خلال:",
+                    "  - اجتماعات ما قبل الفرقة",
+                    "  - تنسيق خطط الدروس",
+                    "  - تصميم العروض التقديمية للمواد واعتمادها لضمان جودة التدريب واستمراريته.",
+                    "• متابعة التنفيذ عن طريق:",
+                    "  - القياسات قبل وأثناء وبعد الفرقة",
+                    "  - إخضاعها لنظم تحليل البيانات للوقوف على السلبيات والإيجابيات وتطوير البرنامج.",
+                    "• استطلاعات وتقييمات بنهاية الفرقة تستهدف:",
+                    "  - قياس العائد التدريبي",
+                    "  - أداء إدارة التدريب متمثلة في الأقسام والمدربين.",
+                    "• نشر النتائج على المتدربين من خلال احتفالية بنهاية كافة الفرق مجمعة وتكريم المتميزين.",
+                    "• عرض المشاريع التدريبية من خلال فيديوهات الفاعليات التدريبية."
+                  ],
+                  evidenceInternal: [
+                    "مواعيد الفرق التدريبية المدرجة بالخطة.",
+                    "قياسات المستوي.",
+                    "استطلاعات الرأي وتقييمات بنهاية الفرقة ( قسم التدريب )",
+                    "حفلة تخرج بحضور قيادة قطاع التدريب."
+                  ],
+                  evidenceExternal: []
+                },
+                {
+                  id: "p10-3-1-2", number: "10-3-1-2", name: "تحديد معوقات تنفيذ البرنامج التدريبي وحلها",
+                  procedures: [
+                    "تحليل اسباب عدم تنفيذ البرنامج التدريبي ، علي سبيل المثال :",
+                    "• معوقات في التخطيط:",
+                    "  - اهداف غير واقعية.",
+                    "  - جدول زمني غير مناسب.",
+                    "  - ميزانية غير كافية.",
+                    "• معوقات تنفيذية:",
+                    "  - مدربون غير مؤهلين.",
+                    "  - وسائل تدريبية غير مناسبة.",
+                    "  - بيئة تدريبية غير ملائمة.",
+                    "• معوقات بشرية:",
+                    "  - مقاومة المتدربين للتغيير.",
+                    "  - انخفاض الدافعية.",
+                    "  - غياب المشاركة بين المدرب والمتدرب.",
+                    "• معوقات ادارية :",
+                    "  - عدم دعم الادارة.",
+                    "  - نقص التنسيق بين الاقسام.",
+                    "  - تعارض في الصلاحيات."
+                  ],
+                  evidenceInternal: [
+                    "وثيقة تحليل المعوقات .",
+                    "محضر اجتماع لحل المعوقات."
+                  ],
+                  evidenceExternal: []
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      id: "d11", name: "تقييم الفاعلية التدريبية", icon: "📊", color: "#9aa5c9", colorLight: "#9aa5c9", description: "",
+      standards: [
+        {
+          id: "s11-1", number: "11-1", name: "شمولية واستمرارية التدريب",
+          indicators: [
+            {
+              id: "i11-1-1", number: "11-1-1", name: "أساليب التقييم",
+              practices: [
+                {
+                  id: "p11-1-1-1", number: "11-1-1-1", name: "يتم قياس مستوى المتدرب قبل التدريب",
+                  procedures: ["عمل اختبارات متنوعه ( نظري - عملي )"],
+                  evidenceInternal: ["أحد قياسات مستوى المتدربين قبل الفرقة."],
+                  evidenceExternal: ["قياسات المستوى للفرق التدريبية."]
+                },
+                {
+                  id: "p11-1-1-2", number: "11-1-1-2", name: "يتم قياس مستوى المتدرب أثناء التدريب",
+                  procedures: ["قياس مستوى المتدرب أثناء التدريب للوقوف علي المستوي التدريبي ."],
+                  evidenceInternal: ["قياس مستوى المتدرب أثناء التدريب."],
+                  evidenceExternal: ["قياسات المستوى للفرق التدريبية."]
+                },
+                {
+                  id: "p11-1-1-3", number: "11-1-1-3", name: "يتم قياس مستوى المتدرب بعد التدريب",
+                  procedures: ["يتم قياس مستوى المتدرب بعد التدريب وذلك من خلال قياس المعارف والمهارات المكتسبة."],
+                  evidenceInternal: ["قياس مستوى المتدرب بعد التدريب."],
+                  evidenceExternal: ["قياسات المستوى للفرق التدريبية."]
+                },
+                {
+                  id: "p11-1-1-4", number: "11-1-1-4", name: "يتم استطلاع رأي المتدرب المرشح لتلقي الفرقة ( قبل الفرقة ) نموذج 2 من النماذج التطبيقية",
+                  procedures: ["يتم ذلك من خلال تسليم المتدرب لنموذج لاستطلاع الرأي قبل الفرقة من خلال عدد من الأسئلة يجيب عليها المتدرب."],
+                  evidenceInternal: ["صورة ضوئية لنموذج استطلاع رأي المتدرب قبل الفرقة."],
+                  evidenceExternal: ["حفظ استطلاعات الرأي."]
+                },
+                {
+                  id: "p11-1-1-5", number: "11-1-1-5", name: "يتم استطلاع رأي المتدرب ( بعد الفرقة ) نموذج 3 من النماذج التطبيقية",
+                  procedures: ["تسليم المتدرب نموذج لاستطلاع الرأي بعد الفرقة ."],
+                  evidenceInternal: ["أحد نماذج استطلاع رأي المتدربين بعد الفرقة."],
+                  evidenceExternal: ["حفظ استطلاعات الرأي."]
+                },
+                {
+                  id: "p11-1-1-6", number: "11-1-1-6", name: "يتم تقييم المتدرب ( بمعرفة المدرب – أخصائي التدريب ) نموذج 4 من النماذج التطبيقية",
+                  procedures: ["تقييم المدرب للمتدرب وفقاً لنموذج التقييم ."],
+                  evidenceInternal: ["أحد نماذج تقييم المتدرب."],
+                  evidenceExternal: ["حفظ تقييم المتدرب."]
+                },
+                {
+                  id: "p11-1-1-7", number: "11-1-1-7", name: "يتم تقييم جميع المدربين بمعرفة إدارة التدريب بالمعهد / المركز (نطاق التقييم المجال الثامن .. المدرب)",
+                  procedures: ["تقييم جميع المدربين بمعرفة الادارة ( وفقا ًللمجال الثامن : المدرب )."],
+                  evidenceInternal: ["محفوظ بالمجال الثامن المدرب."],
+                  evidenceExternal: []
+                },
+                {
+                  id: "p11-1-1-8", number: "11-1-1-8", name: "يتم استطلاع رأي المتدربين في المدربين نموذج 5 من النماذج التطبيقية",
+                  procedures: ["تقييم المدربين وفقاً لنموذج تقييم المتدرب للمدرب."],
+                  evidenceInternal: ["أحد نماذج تقييم المتدرب للمدرب."],
+                  evidenceExternal: ["حفظ استطلاع رأي المتدرب في المدرب."]
+                },
+                {
+                  id: "p11-1-1-9", number: "11-1-1-9", name: "يتم اتخاذ الإجراءات اللازمة لتطوير المدربين بناءً على استطلاع رأي المتدربين والتقييم الذي تم بمعرفة إدارة تدريب المعهد / المركز",
+                  procedures: [
+                    "يتم ذلك من خلال متابعة تقييم المتدرب للمدرب وفقاً لنموذج التقييم المخصص لذلك ، وتقييم الادارة للمدرب للعمل على وضع خطة للتطوير المستمر.",
+                    "وضع خطة لمعالجة نقاط الضعف والعمل علي تطوير وتحسين المستوي."
+                  ],
+                  evidenceInternal: [
+                    "أحد نماذج تقييم المتدرب للمدرب.",
+                    "أحد نماذج تقييم الادارة للمدرب.",
+                    "تقرير لمستوي المدربين .",
+                    "محضر اجتماع لتطوير المدربين."
+                  ],
+                  evidenceExternal: [
+                    "نماذج تقييم المتدرب للمدرب.",
+                    "نماذج تقييم الادارة للمدرب",
+                    "نماذج لتحليل التقييم .",
+                    "اجراءات لتطوير المدربين."
+                  ]
+                }
+              ]
+            },
+            {
+              id: "i11-1-2", number: "11-1-2", name: "قياس نتائج التقييم",
+              practices: [
+                {
+                  id: "p11-1-2-1", number: "11-1-2-1", name: "يحرص المعهد / المركز على مناقشة نتائج التقييم مع القيادات التدريبية والجهات المستفيدة",
+                  procedures: ["من خلال عمل اجتماع مع الجهات المستفيدة لمناقشة مخرجات الفرقة التدريبية ( المعارف والمهارات )."],
+                  evidenceInternal: ["محضر اجتماع ."],
+                  evidenceExternal: []
+                },
+                {
+                  id: "p11-1-2-2", number: "11-1-2-2", name: "يضع المعهد / المركز خططاً تنفيذية للتحسين والتعزيز في ضوء نتائج تقييم الفاعلية التدريبية",
+                  procedures: ["عقد اجتماع لإضافة استحداثات جديدة في الخطة التدريبية للتحسين من الفاعلية التدريبية ."],
+                  evidenceInternal: ["محضر الاجتماع."],
+                  evidenceExternal: []
+                },
+                {
+                  id: "p11-1-2-3", number: "11-1-2-3", name: "يطبق المعهد/المركز الخطط التنفيذية لتطوير وتعزيز الفاعلية التدريبية ضمن جدول زمني مع توفير الآليات الخاصة بمتابعة التنفيذ واتخاذ الإجراءات التصحيحية",
+                  procedures: [
+                    "يتم ذلك من خلال عمل اجتماعات مستمرة لمتابعة التنفيذ من جانب الادارة على الاستحداثات الجديدة التي تم اضافتها في الخطة التدريبية للتحسين من الفاعلية التدريبية وفقاً للجدول الزمنى المحدد لها.",
+                    "حرص المعهد/المركز علي توفير الآليات المناسبة لمتابعة تنفيذ ما تم وضعه من استحداثات جديدة للتطوير."
+                  ],
+                  evidenceInternal: [
+                    "محضر الاجتماع .",
+                    "تقرير المتابعة."
+                  ],
+                  evidenceExternal: []
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+};
+
+let currentView = { type: 'home' };
+
+const settingsBtn = document.getElementById('settingsBtn');
+const settingsModal = document.getElementById('settingsModal');
+const closeSettings = document.getElementById('closeSettings');
+const root = document.documentElement;
+
+const savedBg = localStorage.getItem('bg-gradient') || 'linear-gradient(135deg, #1a1f35 0%, #2d3748 100%)';
+const savedContentFontSize = localStorage.getItem('content-font-size') || '16px';
+const savedFontFamily = localStorage.getItem('font-family') || "'Tajawal', sans-serif";
+
+root.style.setProperty('--bg-gradient', savedBg);
+root.style.setProperty('--content-font-size', savedContentFontSize);
+root.style.setProperty('--font-family', savedFontFamily);
+
+document.getElementById('fontSizeSelect').value = savedContentFontSize;
+document.getElementById('fontFamilySelect').value = savedFontFamily;
+
+settingsBtn.addEventListener('click', () => settingsModal.classList.add('active'));
+closeSettings.addEventListener('click', () => settingsModal.classList.remove('active'));
+settingsModal.addEventListener('click', (e) => { if (e.target === settingsModal) settingsModal.classList.remove('active'); });
+
+document.querySelectorAll('.color-btn').forEach(btn => {
+  btn.addEventListener('click', (e) => {
+    const bg = e.target.getAttribute('data-bg');
+    root.style.setProperty('--bg-gradient', bg);
+    localStorage.setItem('bg-gradient', bg);
+    document.querySelectorAll('.color-btn').forEach(b => b.classList.remove('active'));
+    e.target.classList.add('active');
+  });
+});
+
+document.getElementById('customColor').addEventListener('input', (e) => {
+  const color = e.target.value;
+  const gradient = `linear-gradient(135deg, ${color} 0%, #1a1f35 100%)`;
+  root.style.setProperty('--bg-gradient', gradient);
+  localStorage.setItem('bg-gradient', gradient);
+  document.querySelectorAll('.color-btn').forEach(b => b.classList.remove('active'));
+});
+
+document.getElementById('fontSizeSelect').addEventListener('change', (e) => {
+  const size = e.target.value;
+  root.style.setProperty('--content-font-size', size);
+  localStorage.setItem('content-font-size', size);
+});
+
+document.getElementById('fontFamilySelect').addEventListener('change', (e) => {
+  const font = e.target.value;
+  root.style.setProperty('--font-family', font);
+  localStorage.setItem('font-family', font);
+});
+
+function renderBreadcrumb() {
+  const bc = document.getElementById('breadcrumb');
+  let html = `<span class="breadcrumb-item ${currentView.type === 'home' ? 'current' : ''}" onclick="goHome()">الرئيسية</span>`;
+  if (currentView.domain) {
+    html += `<span class="breadcrumb-sep">‹</span>`;
+    html += `<span class="breadcrumb-item ${!currentView.standard ? 'current' : ''}" onclick="viewDomain('${currentView.domain.id}')">${currentView.domain.name}</span>`;
+  }
+  if (currentView.standard) {
+    html += `<span class="breadcrumb-sep">‹</span>`;
+    html += `<span class="breadcrumb-item ${!currentView.indicator ? 'current' : ''}" onclick="viewStandard('${currentView.domain.id}', '${currentView.standard.id}')">${currentView.standard.number} ${currentView.standard.name}</span>`;
+  }
+  if (currentView.indicator) {
+    html += `<span class="breadcrumb-sep">‹</span>`;
+    html += `<span class="breadcrumb-item ${!currentView.practice ? 'current' : ''}" onclick="viewIndicator('${currentView.domain.id}', '${currentView.standard.id}', '${currentView.indicator.id}')">${currentView.indicator.number} ${currentView.indicator.name}</span>`;
+  }
+  if (currentView.practice) {
+    html += `<span class="breadcrumb-sep">‹</span>`;
+    html += `<span class="breadcrumb-item current">${currentView.practice.number} ${currentView.practice.name}</span>`;
+  }
+  bc.innerHTML = html;
+}
+
+function renderHome() {
+  const content = document.getElementById('contentArea');
+  let html = `<div class="cards-grid fade-in">`;
+  data.domains.forEach(d => {
+    const stdCount = d.standards.length;
+    let indCount = 0, pracCount = 0;
+    d.standards.forEach(s => { indCount += s.indicators.length; s.indicators.forEach(i => pracCount += i.practices.length); });
+    html += `<div class="card card-stack" style="--card-color: ${d.color}" onclick="viewDomain('${d.id}')">
+      <div class="card-title"><span class="card-icon">${d.icon}</span>${d.name}</div>
+      ${d.description ? `<div class="card-desc">${d.description}</div>` : ''}
+      <div class="card-meta"><span class="card-meta-item">${stdCount} معيار</span><span class="card-meta-item">${indCount} مؤشر</span><span class="card-meta-item">${pracCount} ممارسة</span></div>
+    </div>`;
+  });
+  html += `</div>`;
+  content.innerHTML = html;
+}
+
+function renderDomain(domain) {
+  const content = document.getElementById('contentArea');
+  let html = `<div class="fade-in"><p class="page-subtitle">${domain.description}</p><div class="cards-grid">`;
+  domain.standards.forEach(s => {
+    let indCount = 0, pracCount = 0;
+    s.indicators.forEach(i => { indCount++; pracCount += i.practices.length; });
+    html += `<div class="card card-stack" style="--card-color: ${domain.color}" onclick="viewStandard('${domain.id}', '${s.id}')">
+      <div class="card-title"><span class="card-icon">${s.number}</span>${s.name}</div>
+      <div class="card-meta"><span class="card-meta-item">${indCount} مؤشر</span><span class="card-meta-item">${pracCount} ممارسة</span></div>
+    </div>`;
+  });
+  html += `</div></div>`;
+  content.innerHTML = html;
+}
+
+function renderStandard(domain, standard) {
+  const content = document.getElementById('contentArea');
+  let html = `<div class="fade-in"><div class="cards-grid">`;
+  standard.indicators.forEach(i => {
+    html += `<div class="card card-stack" style="--card-color: ${domain.color}" onclick="viewIndicator('${domain.id}', '${standard.id}', '${i.id}')">
+      <div class="card-title"><span class="card-icon">${i.number}</span>${i.name}</div>
+      <div class="card-meta"><span class="card-meta-item">${i.practices.length} ممارسة</span></div>
+    </div>`;
+  });
+  html += `</div></div>`;
+  content.innerHTML = html;
+}
+
+function renderIndicator(domain, standard, indicator) {
+  const content = document.getElementById('contentArea');
+  let html = `<div class="fade-in"><div class="cards-grid">`;
+  indicator.practices.forEach(p => {
+    html += `<div class="card practice-mini" style="--card-color: ${domain.color}" onclick="viewPractice('${domain.id}', '${standard.id}', '${indicator.id}', '${p.id}')">
+      <div class="card-title"><span class="card-icon">${p.number}</span>${p.name}</div>
+    </div>`;
+  });
+  html += `</div></div>`;
+  content.innerHTML = html;
+}
+
+function renderPractice(domain, standard, indicator, practice) {
+  const content = document.getElementById('contentArea');
+  const p = practice;
+  let html = `<div class="fade-in"><div class="cards-grid">`;
+  html += `<div class="card card-stack practice-detail-card" style="--card-color: ${domain.color}">
+    <div class="card-title"><span class="card-icon">📝</span>الإجراءات المتخذة</div>
+    <ul>${p.procedures.map(proc => `<li>${proc}</li>`).join('')}</ul>
+  </div>`;
+  if (p.evidenceInternal.length > 0) {
+    html += `<div class="card card-stack practice-detail-card" style="--card-color: #8ec4ff">
+      <div class="card-title"><span class="card-icon">📎</span>دليل مرفق بملف التقييم الذاتي</div>
+      <ul>${p.evidenceInternal.map(ev => `<li>${ev}</li>`).join('')}</ul>
+    </div>`;
+  }
+  if (p.evidenceExternal.length > 0) {
+    html += `<div class="card card-stack practice-detail-card" style="--card-color: #ffb454">
+      <div class="card-title"><span class="card-icon">📁</span>دليل خارجي للإطلاع</div>
+      <ul>${p.evidenceExternal.map(ev => `<li>${ev}</li>`).join('')}</ul>
+    </div>`;
+  }
+  html += `</div></div>`;
+  content.innerHTML = html;
+}
+
+function renderAll() {
+  renderBreadcrumb();
+  if (currentView.type === 'home') renderHome();
+  else if (currentView.type === 'domain') renderDomain(currentView.domain);
+  else if (currentView.type === 'standard') renderStandard(currentView.domain, currentView.standard);
+  else if (currentView.type === 'indicator') renderIndicator(currentView.domain, currentView.standard, currentView.indicator);
+  else if (currentView.type === 'practice') renderPractice(currentView.domain, currentView.standard, currentView.indicator, currentView.practice);
+}
+
+function goHome() { currentView = { type: 'home' }; renderAll(); window.scrollTo({ top: 0, behavior: 'smooth' }); }
+function viewDomain(id) { const d = data.domains.find(x => x.id === id); if (!d) return; currentView = { type: 'domain', domain: d }; renderAll(); window.scrollTo({ top: 0, behavior: 'smooth' }); }
+function viewStandard(dId, sId) { const d = data.domains.find(x => x.id === dId); const s = d?.standards.find(x => x.id === sId); if (!d || !s) return; currentView = { type: 'standard', domain: d, standard: s }; renderAll(); window.scrollTo({ top: 0, behavior: 'smooth' }); }
+function viewIndicator(dId, sId, iId) { const d = data.domains.find(x => x.id === dId); const s = d?.standards.find(x => x.id === sId); const i = s?.indicators.find(x => x.id === iId); if (!d || !s || !i) return; currentView = { type: 'indicator', domain: d, standard: s, indicator: i }; renderAll(); window.scrollTo({ top: 0, behavior: 'smooth' }); }
+function viewPractice(dId, sId, iId, pId) { const d = data.domains.find(x => x.id === dId); const s = d?.standards.find(x => x.id === sId); const i = s?.indicators.find(x => x.id === iId); const p = i?.practices.find(x => x.id === pId); if (!d || !s || !i || !p) return; currentView = { type: 'practice', domain: d, standard: s, indicator: i, practice: p }; renderAll(); window.scrollTo({ top: 0, behavior: 'smooth' }); }
+
+renderAll();
+</script>
+
+</body>
+</html>
